@@ -50,7 +50,7 @@ Lower-end bows are designed to be adjustable and grow with you.
 Simon recommends entry-level bow, e.g. *Hoyt Ignite* or *Bear Cruzer*.
 - adjustable 15-70 lbs draw weight
 - adjustable 19-30" draw length
-- (not extremely consistent)
+- (not extremely consistent, remember trade-off between adjustability and consistency)
 
 Simon has shot and likes Matthews, PSE, Hoyt, Prime
 Go to a pro shop that has all these brands and try them all:
@@ -61,5 +61,5 @@ Get a *good* release.
 
 For a starter bow, get most accessories in good quality. When you switch bows, the accessories will still be good: sight, rest, stabs, release, arrows
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkxNjg5ODE4XX0=
+eyJoaXN0b3J5IjpbMjQ1MDk1OTgxLC05MTY4OTgxOF19
 -->
