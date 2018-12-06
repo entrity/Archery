@@ -17,10 +17,10 @@ Teresa has 80% letoff. *PSE Phenom SD* - like a hybrid between bowhunter and com
 
 ## Parts & Accessories
 ### Sights
-2 types: (1) multipin and (2) single pin
+2 types: (1) **multipin** and (2) **single pin**
 multipin is more confusing for beginners
 ### Rests
-2 types of rest: (1) static and (2) dropaway
+2 types of rest: (1) **static** and (2) **dropaway**
 dropaway has a cable attached to the string: the blade of the rest goes up and down quickly and automatically
 
 **whisker biscuit**: safer for beginner (than **lizard tongue**) because it allows the archer to cant the bow without dropping the arrow from the arrow rest
@@ -46,6 +46,11 @@ Simon recommends entry-level bow, e.g. *Hoyt Ignite* or *Bear Cruzer*.
 - adjustable 15-70 lbs draw weight
 - adjustable 19-30" draw length
 - (not extremely consistent)
+
+Simon has shot and likes Matthews, PSE, Hoyt, Prime
+Go to a pro shop that has all these brands and try them all:
+- shoot them all
+- the shop should adjust the bows to your draw length and draw weight
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk2MDIzMDA1OV19
+eyJoaXN0b3J5IjpbLTEyODE0ODg0MDldfQ==
 -->
