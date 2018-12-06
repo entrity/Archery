@@ -46,6 +46,8 @@ Change **draw length** by changing "models" (holes on cams). For higher-end bows
 
 Lower-end bows are designed to be adjustable and grow with you.
 
+A shorter brace height $\rarr$ faster shot but less forgiveness because the arrow is on the string longer, so you need to keep your form correct longer after release
+
 ## Beginners
 Simon recommends entry-level bow, e.g. *Hoyt Ignite* or *Bear Cruzer*.
 - adjustable 15-70 lbs draw weight
@@ -59,7 +61,7 @@ Go to a pro shop that has all these brands and try them all:
 
 Get a *good* release.
 
-For a starter bow, get most accessories in good quality. When you switch bows, the accessories will still be good: sight, rest, stabs, release, arrows
+For a starter bow, get most accessories in good quality. When you switch bows, the accessories will still be good and can transfer to your new bow: sight, rest, stabs, release, arrows
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQ1MDk1OTgxLC05MTY4OTgxOF19
+eyJoaXN0b3J5IjpbNjYwNDAyOTMyLC05MTY4OTgxOF19
 -->
