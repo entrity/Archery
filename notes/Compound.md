@@ -26,12 +26,19 @@ dropaway has a cable attached to the string: the blade of the rest goes up and d
 whisker biscuit: safer for beginner (than lizard tongue) because it allows the archer to cant the bow without dropping the arrow from the arrow rest
 ### Cable guard
 Cable guard maintains tension of cables during draw
+### Releases
+3 main types:
+1. finger trigger - goes around wrist - more common in hunting so that the release is always close at hand.
+2. thumb trigger - like the club ones
+3. back tension - rotate fingers or relax index finger and let release tilt forward
+	- easy to misfire and not allowed i 
 
 ## Adjustments
 Add or subtract twists on cables or string to change the **draw weight**
 
 Change **draw length** by changing "models" (holes on cams). For higher-end bows, this is not an option (for the sake of consistency). You can add a draw stop on some bows to compensate for the sponginess of the draw length.
 
+Lower-end bows are designed to be adjustable and grow with you.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE3Njk4OTM3MTddfQ==
+eyJoaXN0b3J5IjpbLTIwNTYxMzM5MjFdfQ==
 -->
