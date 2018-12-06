@@ -5,6 +5,8 @@
 ### Compound Unlimited
 40"-48" axel to axel
 
+Tend to have a window (not just cutaway). Window provides support on both sides of the arrow, valuable because without the support the riser actually bends when you draw. (You correct for this bend with your sight and so don't notice it in bows without the window.)
+
 ### Bowhunter
 30" axel to axel
 typically $12$" stab in front, $7 \pm 1$" stab in back
@@ -23,5 +25,5 @@ dropaway has a cable attached to the string: the blade of the rest goes up and d
 
 whisker biscuit: safer for beginner (than lizard tongue) because it allows the archer to cant the bow without dropping the arrow from the arrow rest
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NzE4OTAyMzZdfQ==
+eyJoaXN0b3J5IjpbODc5NzI5OTQ2XX0=
 -->
