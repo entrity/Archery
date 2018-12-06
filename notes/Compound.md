@@ -31,7 +31,8 @@ Cable guard maintains tension of cables during draw
 1. finger trigger - goes around wrist - more common in hunting so that the release is always close at hand.
 2. thumb trigger - like the club ones
 3. back tension - rotate fingers or relax index finger and let release tilt forward
-	- easy to misfire and not allowed i 
+	- easy to misfire and not allowed in the club
+	- allows you to concentrate on arm, not worry about follow through 
 
 ## Adjustments
 Add or subtract twists on cables or string to change the **draw weight**
@@ -39,6 +40,9 @@ Add or subtract twists on cables or string to change the **draw weight**
 Change **draw length** by changing "models" (holes on cams). For higher-end bows, this is not an option (for the sake of consistency). You can add a draw stop on some bows to compensate for the sponginess of the draw length.
 
 Lower-end bows are designed to be adjustable and grow with you.
+
+## Beginners
+Simon recommends entry-level bow, e.g. Hoyt Ignite or Bear Cruzer
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNTYxMzM5MjFdfQ==
+eyJoaXN0b3J5IjpbLTEwNTI2MzA3OTJdfQ==
 -->
