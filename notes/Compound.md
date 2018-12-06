@@ -18,7 +18,10 @@ Teresa has 80% letoff. *PSE Phenom SD* - like a hybrid between bowhunter and com
 2 types: (1) multipin and (2) single pin
 multipin is more confusing for beginners
 ### Rests
-2 types of rest: (1) static and (2) drop
+2 types of rest: (1) static and (2) dropaway
+dropaway has a cable attached to the string: the blade of the rest goes up and down quickly and automatically
+
+whisker biscuit: safer for beginner (than lizard tongue) because it allows the archer to cant the bow without dropping the arrow from the arrow rest
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MzY1MDg1NTFdfQ==
+eyJoaXN0b3J5IjpbLTE2NzE4OTAyMzZdfQ==
 -->
