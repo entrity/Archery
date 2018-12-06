@@ -24,12 +24,14 @@ multipin is more confusing for beginners
 dropaway has a cable attached to the string: the blade of the rest goes up and down quickly and automatically
 
 whisker biscuit: safer for beginner (than lizard tongue) because it allows the archer to cant the bow without dropping the arrow from the arrow rest
-### Draw weight, Draw length, Cables, String
+### Cable guard
 Cable guard maintains tension of cables during draw
 
-Add or subtract twists on cables or string to change the draw weight
+## Adjustments
+Add or subtract twists on cables or string to change the **draw weight**
 
-Change draw length by changing "models" (holes on cams)
+Change **draw length** by changing "models" (holes on cams). For higher-end bows, this is not an option (for the sake of consistency). You can add a draw stop on some bows to compensate for the sponginess of the draw length.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzA5MDg2MzM4XX0=
+eyJoaXN0b3J5IjpbLTE3Njk4OTM3MTddfQ==
 -->
