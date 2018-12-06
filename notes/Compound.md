@@ -23,14 +23,14 @@ multipin is more confusing for beginners
 2 types of rest: (1) static and (2) dropaway
 dropaway has a cable attached to the string: the blade of the rest goes up and down quickly and automatically
 
-whisker biscuit: safer for beginner (than lizard tongue) because it allows the archer to cant the bow without dropping the arrow from the arrow rest
+**whisker biscuit**: safer for beginner (than **lizard tongue**) because it allows the archer to cant the bow without dropping the arrow from the arrow rest
 ### Cable guard
 Cable guard maintains tension of cables during draw
 ### Releases
 3 main types:
-1. finger trigger - goes around wrist - more common in hunting so that the release is always close at hand.
-2. thumb trigger - like the club ones
-3. back tension - rotate fingers or relax index finger and let release tilt forward
+1. **finger trigger** - goes around wrist - more common in hunting so that the release is always close at hand.
+2. **thumb trigger** - like the club ones
+3. **back tension** - rotate fingers or relax index finger and let release tilt forward
 	- easy to misfire and not allowed in the club
 	- allows you to concentrate on arm, not worry about follow through 
 
@@ -42,7 +42,10 @@ Change **draw length** by changing "models" (holes on cams). For higher-end bows
 Lower-end bows are designed to be adjustable and grow with you.
 
 ## Beginners
-Simon recommends entry-level bow, e.g. Hoyt Ignite or Bear Cruzer
+Simon recommends entry-level bow, e.g. *Hoyt Ignite* or *Bear Cruzer*.
+- adjustable 15-70 lbs draw weight
+- adjustable 19-30" draw length
+- (not extremely consistent)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNTI2MzA3OTJdfQ==
+eyJoaXN0b3J5IjpbMTk2MDIzMDA1OV19
 -->
