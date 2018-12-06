@@ -16,6 +16,8 @@ draw 50 lbs, let-off to 20 lbs
 Teresa has 80% letoff. *PSE Phenom SD* - like a hybrid between bowhunter and compound unlimited
 
 ## Parts & Accessories
+No arm guard, no chest guard. 
+
 ### Sights
 2 types: (1) **multipin** and (2) **single pin**
 multipin is more confusing for beginners
@@ -32,7 +34,9 @@ Cable guard maintains tension of cables during draw
 2. **thumb trigger** - like the club ones
 3. **back tension** - rotate fingers or relax index finger and let release tilt forward
 	- easy to misfire and not allowed in the club
-	- allows you to concentrate on arm, not worry about follow through 
+	- allows you to concentrate on arm, not worry about follow through
+### String
+Usually has 24 strands, instead of the 18 common to recurves. Fewer strands means a faster shot.
 
 ## Adjustments
 Add or subtract twists on cables or string to change the **draw weight**
@@ -51,6 +55,10 @@ Simon has shot and likes Matthews, PSE, Hoyt, Prime
 Go to a pro shop that has all these brands and try them all:
 - shoot them all
 - the shop should adjust the bows to your draw length and draw weight
+
+Get a *good* release.
+
+For a starter bow, get most accessories in good quality. When you switch bows, the accessories will still be good: sight, rest, stabs, release, arrows
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyODE0ODg0MDldfQ==
+eyJoaXN0b3J5IjpbLTE0ODgwMjE4OTZdfQ==
 -->
