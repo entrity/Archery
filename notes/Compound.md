@@ -16,7 +16,8 @@ draw 50 lbs, let-off to 20 lbs
 Teresa has 80% letoff. *PSE Phenom SD* - like a hybrid between bowhunter and compound unlimited
 
 ## Parts & Accessories
-No arm guard, no chest guard. 
+### Arm guard, Chest guard
+No arm guard, no chest guard. Shorter axel-to-axel gives a steeper angle.
 
 ### Sights
 2 types: (1) **multipin** and (2) **single pin**
@@ -60,5 +61,5 @@ Get a *good* release.
 
 For a starter bow, get most accessories in good quality. When you switch bows, the accessories will still be good: sight, rest, stabs, release, arrows
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0ODgwMjE4OTZdfQ==
+eyJoaXN0b3J5IjpbLTkxNjg5ODE4XX0=
 -->
