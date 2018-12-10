@@ -9,7 +9,11 @@
 - VAP points (small) [[lancaster](http://www.lancasterarchery.com/victory-vap-stainless-steel-target-point-small.html)]
 
 ## Bow
-- SF Forged+ riser (replaced
+- SF Forged+ riser (no longer in production. replaced by the identical WNS Elite Forged Alpha.)
+- SF Axiom limbs (26 lbs and 30 lbs)
+- Shibuya DX plunger
+- Spigarelli ZT arrow rest with replacement wire for narrow shafts
+- 60X Strings
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjgwMjgxNTkxXX0=
+eyJoaXN0b3J5IjpbLTY5Njk3NDQ4MV19
 -->
