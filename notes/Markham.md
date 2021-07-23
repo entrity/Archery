@@ -16,6 +16,7 @@
 
 ## Bow
 - SF Forged+ riser (no longer in production. replaced by the identical WNS Elite Forged Alpha.)
+- WNS Forged Elite-alpha riser | S/N XFH0539 | HXFWE5R0015 | 25 R/H M/GRAY
 - SF Axiom + limbs (lower limb is recognizable by red cross on face)
     - 26 lbs @ 70" / 28 lbs @ 68" / S/N LHGAX680072
     - 30 lbs @ 70" / 32 lbs @ 68" / S/N LHKAX680016
