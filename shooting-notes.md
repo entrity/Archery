@@ -4,3 +4,4 @@
 * 2021-09-07 Push+pull. Pause after aim-and-expand, ensure bow hand is pushing and holding aright.
 * 2021-09-09 _Gentle_ push with bow hand. These are light limbs.
 * 2021-09-09 Don't draw all the way to the chest before anchoring. Wasted effort.
+* 2019-09-18 Don't drop bow. Soft release hand (check after release if not before+after)
