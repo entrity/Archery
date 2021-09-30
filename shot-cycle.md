@@ -1,0 +1,14 @@
+- stance
+- nock
+- string crawl
+- hook
+- grip
+- set up
+- grip: contact and pressure on heel of the hand
+- draw (straight, not USAA)
+- lift and anchor
+- pre-aim
+- expand: :dango: circle bow elbow backward to the rear (not rightward away from the target) :dango: bring shoulder blades together
+- pause to see if arrow has stopped wobbling
+- release
+- follow through (automatic, scarcely noticeable on my lightweight bow) :dango: don't drop bow arm
