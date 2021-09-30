@@ -4,7 +4,7 @@
 - hook
 - grip
 - set up
-- grip: contact and pressure on heel of the hand
+- grip: :dango: hand all the way up into the throat of the grip :dango: contact and pressure on heel of the hand
 - draw (straight, not USAA)
 - lift and anchor
 - pre-aim
