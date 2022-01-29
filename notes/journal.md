@@ -1,4 +1,15 @@
-## 2019-09-18
+## 2022-01-29
+**Strong draw; shift forward**
+- Slightly inverted stance
+- Crawl 7 1/4
+- Strong draw (using USAA draw)
+- In the same motion as anchoring (during the "bounce up"), shift weight slightly forward onto the leading foot. (Move hip forward, not backward.)
+- Don't let bow arm/shoulder come inward, keep pushing from "strong draw" onward. Not a hard or sudden push, just a constant push, enough to keep the bow shoulder from coming in.
+- Leave string blur out
+- No extra step for expansion.
+- Best if I can engage bow arm even at the end: truer fieldage and windage. Engagement at the end is marked by _involuntary_ bow drop with hand moving forward.
+
+## 2021-09-18
 Victor had me shoot his uukha limbs. Wow. 27" riser, x-long limbs. Felt so smooth. Abbey pointed out that I was dropping my bow arm when shooting his bow, which was much heavier than mine.
 
 Victor put the uukhas on my 25" riser and added another 8oz weight. Too heavy. The limbs didn't feel as smooth. He pointed out the brace height was crazy big, and a longer string was needed.
