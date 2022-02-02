@@ -35,5 +35,6 @@ Watch for signs of collapse:
 - arrows land RIGHT or HIGH-RIGHT.
 Combat collapse with:
 - strong draw; constant forward push
+- rotating torso away so that shoulders line up perpendicular to target
 - slight inversion of stance
 - expansion doesn't pull draw shoulder to away from the target but instead toward your rear
