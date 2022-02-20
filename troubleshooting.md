@@ -15,9 +15,12 @@ Check whether expansion is really in the back or just in the arm. (See note abou
 **Are arrows inconsistently going low (or going to inconsistently low fieldage)?**\
 If expansion is not the culprit (see note about circling the elbow), check whether you're dropping your bow arm on release.
 
-**Are arrows going to the right?** See "Collapse" below.
+**Are arrows going to the right?**
+See "Collapse" below.
 
-**Are arrows going to the left?** You might be over-expanding. Take it easy. Maybe adjust stance (more or less inverted) so that you can hold the bow steady and have the arrows land on target.
+**Are arrows going to the left?**
+You might be canting. Stop and check the cant. Maybe bring in the string blur.
+You might be over-expanding. Take it easy. Maybe adjust stance (more or less inverted) so that you can hold the bow steady and have the arrows land on target.
 
 **Are arrows going high?** You might have index finger tight on the string. I want middle finger to carry most of the tension. It makes for a smoother release and a safer hook.
 

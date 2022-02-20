@@ -1,26 +1,84 @@
 # Shot process
 
-**strong draw; shift forward**
+## Shooting high (maybe higher than top target at indoor events)
+1. Straight stance
+2. Nock
+3. Crawl 8 marks
+	- Slant hook
+	- Most of the weight is held on middle finger (not index)
+4. Tighten core (bring bottom of hip forward)
+5. Set up
+	- Height is important.
+	- Arrow goes left of gold; plunger goes beneath target, centered on gold.
+	- Set bow hand against bow (not gripping)
+6. Draw
+	- Slow draw
+	- Strong draw
+  - Straight draw, not USAA b/c curve draw is inhibited by torso rotation
+  - Draw with weight on middle finger, not index finger.
+	- Hips should rotate so that torso moves to 90 degrees from target face
+7. Anchor
+	- Arrow should go up, above gold, and come down a bit but stay high.
+	- I lock draw shoulder (blade) down.
+	- Weight should shift forward slightly onto leading foot.
+8. Aim
+	- String blur should already be in (in line w/ riser) and straight (no cant).
+	- Move bow arm downward while keeping draw shoulder locked in place.
+	- Pause when at aim.
+9. Release & follow through
+	- String hand should automatically move backward
+	- Bow should automatically move forward
+	- Bow should scarcely move left/right/up/down
 
-1. straight stance
-    - inverted stance is also okay
-2. nock
-3. crawl a bold 8 marks
-4. slant hook
-5. set up
-    - (+) put point of arrow up on gold. height is important
-    - (+) rotate torso away so that it is parallel to the shot
-    - set bow hand against bow (not gripping)
-6. draw
-    - (+) strong draw. keep bow arm engaged
-    - (+) straight draw, not USAA b/c curve draw is inhibited by torso rotation
-    - (+) draw toward chin, not toward body. this helps prevent loss of bow arm engagement
-    - (+) draw with weight on middle finger, not index
-7. anchor
-    - pre-aim on gold
-    - bring in string blur
-8. pause
-    - correct any bow cant
-    - arrow should not wobble or circle
-    - keep bow arm engaged all the way down. don't let the bow shoulder come in
-9. upon release, the bow should scarcely move (on either axis)
+**Troubleshooting**
+If arrows go down:
+	draw shoulder not locked down (maybe locked up)
+If arrows go right (collapse): probably leaning backward (sending hips forward but not torso).
+	shift weight onto leading foot during anchoring
+	"shoulders back" on draw side
+If arrows go left:
+	Fix cant and maybe string blur?
+
+## Shooting _not_ high
+1. Straight stance
+2. Nock
+3. Crawl 7 3/4 marks
+	- Slant hook
+	- Most of the weight is held on middle finger (not index)
+4. Tighten core (bring bottom of hip forward)
+5. Set up
+	- Height is important.
+	- Arrow goes left of gold (above paper in my experiments with uncut arrows).
+	- Plunger goes beneath target, centered on gold.
+	- Set bow hand against bow (not gripping)
+6. Draw
+	- Make the bow arm strong _before_ draw begins. After the draw has started would be too late.
+	- During slow draw, push bow arm forward; let it pull the weight of the body forward, always keeping the plunger at a constant positiion relative to the bottom of the target face. (The plunger will change when I move to anchor, though.) (The weight of the body will eventually end up largely over the leading foot.)
+  - Curved (USAA) draw is okay?
+  - Draw with weight on middle finger, not index finger.
+7. Anchor
+	- _Don't_ try to lock draw shoulder blade down.
+	- _Definitely don't_ lock draw shoulder blade upward.
+	- Come to anchor as close to aiming on gold as reasonably possible. During set-up, position plunger at a height calculated to make this easiest. (In my experiments at 18m, that's about 9 inches below the bottom of the paper.)
+	- Weight should shift forward slightly onto leading foot.
+8. Aim
+	- Pause when at aim.
+	- Check for cant. Maybe bring in string blur into line with riser.
+9. Release & follow through
+	- String hand should automatically move backward
+	- Bow should automatically move forward
+	- Bow should scarcely move left/right/up/down
+
+**Troubleshooting**
+- If arrows go _left_: make sure that the draw step is correct: slow draw pushing bow arm forward and keeping plunger in near constant position. Bow arm should stay engaged. If all else fails, check for a cant.
+- If arrows go quite _low_: make sure that your draw shoulder blade is not getting locked in an upward position. Make sure your draw is strong. Feel the draw shoulder blade engage.
+
+## Notes
+- Bow arm should stay engaged during draw and aim.
+- At aim, arrow should not wobble.
+- At aim, I should be aligned, and there shouldn't be excessive stress on arms or shoulders, though both sides should be engaged.
+
+**Maybes**
+- Draw toward chin, not toward body. this helps prevent loss of bow arm engagement
+- pre-aim on gold
+- bring in string blur
