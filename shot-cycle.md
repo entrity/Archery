@@ -42,7 +42,7 @@ If arrows go left:
 ## Shooting _not_ high
 1. Straight stance
 2. Nock
-3. Crawl 7 3/4 marks
+3. Crawl 8 1/2 marks
 	- Slant hook
 	- Most of the weight is held on middle finger (not index)
 4. Tighten core (bring bottom of hip forward)
@@ -53,17 +53,16 @@ If arrows go left:
 	- Set bow hand against bow (not gripping)
 6. Draw
 	- Make the bow arm strong _before_ draw begins. After the draw has started would be too late.
-	- During slow draw, push bow arm forward; let it pull the weight of the body forward, always keeping the plunger at a constant positiion relative to the bottom of the target face. (The plunger will change when I move to anchor, though.) (The weight of the body will eventually end up largely over the leading foot.)
-  - Curved (USAA) draw is okay?
+	- During slow draw, push bow arm forward.
   - Draw with weight on middle finger, not index finger.
 7. Anchor
 	- _Don't_ try to lock draw shoulder blade down.
 	- _Definitely don't_ lock draw shoulder blade upward.
-	- Come to anchor as close to aiming on gold as reasonably possible. During set-up, position plunger at a height calculated to make this easiest. (In my experiments at 18m, that's about 9 inches below the bottom of the paper.)
-	- Weight should shift forward slightly onto leading foot.
-8. Aim
-	- Pause when at aim.
-	- Check for cant. Maybe bring in string blur into line with riser.
+	- Come to anchor.
+	- String blur should be behind riser or arrow, in front of face.
+8. Expand & aim
+	- Push bow arm forward and tighten draw shoulder blade toward spine. Draw shoulder should tighten more than move. Tighten just enough for arrow to become steady. Don't go nuts. Bow arm should not pull rearward or sink into torso, just push forward.
+	- Check for cant.
 9. Release & follow through
 	- String hand should automatically move backward
 	- Bow should automatically move forward

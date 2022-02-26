@@ -1,5 +1,24 @@
 # Troubleshooting trouble shooting
 
+## Checklist
+
+- Are you drawing slowly with middle finger?
+- Are you leaning backward at all?
+- Is bow arm engaged throughout expansion?
+- Is bow arm pushing forward during slow draw?
+- Is index finger relaxed when it's time to loose?
+- Is bow canting?
+- Is string blur in place?
+- Is arrow steady upon expansion?
+
+## Signs (good & bad)
+
+- Is bow arm moving to either side upon release?
+- Is string hand moving away from face upon release?
+- Is bow hand following through upon release?
+
+## xx
+
 **Arrows at 12 o'clock** might indicate a bounce upward at release.
 
 **Arrows to the RIGHT or HIGH-RIGHT** indicate collapse. See "Collapse" below.
