@@ -1,34 +1,33 @@
 # Shot process
 
-## Shooting high (maybe higher than top target at indoor events)
-1. Straight stance
+1. Straight stance. A little off, either inverted or open, is fine.
 2. Nock
-3. Crawl 8 marks
-	- Slant hook
-	- Most of the weight is held on middle finger (not index)
+3. Crawl
+	- Maybe a slant hook. Maybe it doesn't matter.
+	- Most of the weight is held on middle finger, then index, then ring finger.
 4. Tighten core (bring bottom of hip forward)
 5. Set up
 	- Height is important.
-	- Arrow goes left of gold; plunger goes beneath target, centered on gold.
-	- Set bow hand against bow (not gripping)
+	- Arrow goes left of gold (above paper in my experiments with uncut arrows).
+	- Plunger goes beneath target, centered on gold.
+	- Set bow hand against bow (not gripping), with pressure primarily on the meaty part of the thumb side of the heal.
 6. Draw
-	- Slow draw
-	- Strong draw
-  - Straight draw, not USAA b/c curve draw is inhibited by torso rotation
-  - Draw with weight on middle finger, not index finger.
-	- Hips should rotate so that torso moves to 90 degrees from target face
+	- Slow draw with strong bow arm pushing gently forward.
+  - Draw with weight more on middle finger than index finger.
+  - I prefer a straight draw (bow dips down then up, rather than out to the side).
 7. Anchor
-	- Arrow should go up, above gold, and come down a bit but stay high.
-	- I lock draw shoulder (blade) down.
-	- Weight should shift forward slightly onto leading foot.
-8. Aim
-	- String blur should already be in (in line w/ riser) and straight (no cant).
-	- Move bow arm downward while keeping draw shoulder locked in place.
-	- Pause when at aim.
+	- Come to anchor: point of index finger above the lip, feeling for the space between canine and front teeth in upper jaw
+	- String blur should be behind riser, in front of face.
+8. Expand & aim
+	- Move right through anchor without stopping and bring draw shoulder into expansion (locking neither upward nor downward). The draw shoulder blade should be pulled in toward the spine, but once in position, there should be no strain in pulling it inward. Strain will make the shot unsteady.
+	- Then shift focus to the bow arm, which must push gently forward toward the target. Again, no strain. Focus on push and aim. Watch for steadiness. After the first round, put more focus into the push than you naturally tend to do.
+	- Maybe check for cant (anticlockwise) and correct it, even overcorrecting if necessary, though this tends to bring the string blur rightward away from the bow. Overcorrecting does also tend to make the draw shoulder easier to hold in place without locking the string hook, making for an easy release, but you really shouldn't need this sort of compensation; you should be able to get a good release without it.
 9. Release & follow through
 	- String hand should automatically move backward
-	- Bow should automatically move forward
-	- Bow should scarcely move left/right/up/down
+	- Bow hand should automatically move forward
+	- Bow should scarcely move left/right/down (but might move up, depending on crawl and tiller).
+
+Feels like old times.
 
 **Troubleshooting**
 If arrows go down:
@@ -38,35 +37,6 @@ If arrows go right (collapse): probably leaning backward (sending hips forward b
 	"shoulders back" on draw side
 If arrows go left:
 	Fix cant and maybe string blur?
-
-## Shooting _not_ high
-1. Straight stance
-2. Nock
-3. Crawl 8 1/2 marks
-	- Slant hook
-	- Most of the weight is held on middle finger (not index)
-4. Tighten core (bring bottom of hip forward)
-5. Set up
-	- Height is important.
-	- Arrow goes left of gold (above paper in my experiments with uncut arrows).
-	- Plunger goes beneath target, centered on gold.
-	- Set bow hand against bow (not gripping)
-6. Draw
-	- Make the bow arm strong _before_ draw begins. After the draw has started would be too late.
-	- During slow draw, push bow arm forward.
-  - Draw with weight on middle finger, not index finger.
-7. Anchor
-	- _Don't_ try to lock draw shoulder blade down.
-	- _Definitely don't_ lock draw shoulder blade upward.
-	- Come to anchor.
-	- String blur should be behind riser or arrow, in front of face.
-8. Expand & aim
-	- Push bow arm forward and tighten draw shoulder blade toward spine. Draw shoulder should tighten more than move. Tighten just enough for arrow to become steady. Don't go nuts. Bow arm should not pull rearward or sink into torso, just push forward.
-	- Check for cant.
-9. Release & follow through
-	- String hand should automatically move backward
-	- Bow should automatically move forward
-	- Bow should scarcely move left/right/up/down
 
 **Troubleshooting**
 - If arrows go _left_: make sure that the draw step is correct: slow draw pushing bow arm forward and keeping plunger in near constant position. Bow arm should stay engaged. If all else fails, check for a cant.
