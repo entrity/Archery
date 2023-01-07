@@ -2,6 +2,8 @@
 
 My most consistent failing has been using too little serving material.
 
+I make a 16-strand 67" string,
+
 ## Top loop
 Rotate posts. Serve about 4 1/3".
 

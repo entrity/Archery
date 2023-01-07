@@ -7,7 +7,7 @@
     - Easton pin nock [[lancaster](http://www.lancasterarchery.com/easton-pin-nock.html)]
     - TopHat Precision Pin Bushings [lancaster](http://www.lancasterarchery.com/tophat-precision-pin-bushings.html)
     - VAP points (small-diameter 90/100/110 grain) [[lancaster](http://www.lancasterarchery.com/victory-vap-stainless-steel-target-point-small.html)]
-- Brixon 850 spine (blue) (Cut to 80 3/4")
+- Brixon 850 spine (blue) (Cut to 28.5" carbon-to-carbon)
     - Easton pin nock [[lancaster](http://www.lancasterarchery.com/easton-pin-nock.html)]
     - TopHat Precision Pin Bushings [lancaster](http://www.lancasterarchery.com/tophat-precision-pin-bushings.html)
 - Unused
