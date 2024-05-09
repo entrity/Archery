@@ -1,0 +1,2160 @@
+/* eslint-disable no-invalid-this */
+var cornerstoneUX = {
+	init: function () {
+		String.prototype.toCamelCase = function (cap1st) {
+			return ((cap1st ? '-' : '') + this).replace(/-+([^-])/g, function (a, b) {
+				return b.toUpperCase();
+			});
+		};
+		var pageID = document.body.id.toCamelCase();
+		// console.log(pageID);
+		if (cornerstoneUX[pageID]) {
+			// ---- If the function exists, run it, otherwise, don't do anything. ---- //
+			$(document).ready(function () {
+				cornerstoneUX[pageID]();
+			});
+		};
+
+		$('.menu-section').conformity({
+			mode: 'height'
+		});
+
+		$(document).ready(function () {
+			// ---- Create the "main" element for older versions of IE ---- //
+			document.createElement('main');
+
+			// Mega Menu
+			$('#js-navigation-bar .navigation-set li:first').on('click', function (e) {
+				e.preventDefault();
+				$('.nav-group-2').toggle();
+				if (!$('.nav-group-2').is(':visible')) {
+					$('.nav-group-3, .nav-group-4').hide();
+				}
+			});
+
+			$('#js-navigation-bar .navigation-set li:first').on('mouseenter', function () {
+				// console.log('Hover!');
+				$('.nav-group-2').show();
+			});
+
+			var timer;
+			$('#js-navigation-bar .navigation-set li:first, .nav-group-2, .nav-group-3, .nav-group-4').on({
+				mouseover: function () {
+					clearTimeout(timer);
+					$('#js-navigation-bar #shop-all').addClass('open');
+				},
+				mouseout: function (e) {
+					clearTimeout(timer);
+					timer = setTimeout(function () {
+						$('.nav-group-2, .nav-group-3, .nav-group-4').hide();
+					}, 250);
+					$('#js-navigation-bar #shop-all').removeClass('open');
+				}
+			});
+
+			$.getScript('/js/jquery.menu-aim.js', function (data, textStatus) {
+				$('.nav-group-2').menuAim({
+					activate: function (row) {
+						var $item = $(row),
+							index = $('.nav-item-2').index($item),
+							$group = $('.nav-group-4').eq(index);
+
+						$('.nav-group-4').hide();
+						$group.show();
+						$('.nav-group-3').show();
+					},
+					deactivate: function (row) {
+						$('.nav-group-4').hide();
+						$('.nav-group-3').hide();
+					},
+					rowSelector: ".nav-item-2",
+					//activationDelay:    500,     // Delay (ms) for first submenu opening
+					//defaultDelay:       1000,
+					submenuDirection: "right",
+					tolerance: 100
+				});
+			});
+
+			$('.mbl-footer-header').on('click', function (e) {
+				$(this).parent('div').find('.footer-box-content').slideToggle();
+			});
+
+			$('.cs').on('click', function (e) {
+				$('#footer-cs').toggleClass("show-less");
+			});
+			$('.dm').on('click', function (e) {
+				$('#footer-discover').toggleClass("show-less");
+			});
+			$('.fc').on('click', function (e) {
+				$('#footer-catalog').toggleClass("show-less");
+			});
+
+			// ---- Allow Named Anchors With A Class Of "smoothscroll" To Work Without Full URL ---- //
+			$('a[href^="\#"].smoothscroll').on('click', function (e) {
+				e.preventDefault();
+				var target = this.href.substr(this.href.indexOf('#')),
+					target = $(target);
+
+				if (target.offset().top > windowHeight / 2) {
+					var offset = $('#js-header').outerHeight();
+				} else {
+					var offset = 10;
+				};
+
+				scrollToDiv(target, offset);
+			});
+			$('#mbl-backto-top').on('click', function () {
+				$('html, body').animate({
+					scrollTop: '0px'
+				}, 800);
+			});
+			// ---- Back to Top Controls ---- //
+			function backToTop() {
+				var chaser = $('#js-chaser')
+				windowHeight = $(window).height();
+
+				if (chaser) {
+					$(window).scroll(function () {
+						if ($(window).scrollTop() >= windowHeight / 2) {
+							chaser.fadeIn();
+						} else {
+							chaser.hide();
+						};
+					});
+
+					chaser.on('click', function () {
+						$('html, body').animate({
+							scrollTop: '0px'
+						}, 800);
+					});
+				};
+			};
+			if ($(window).innerWidth() >= 768) {
+				var backToTop = new backToTop;
+			};
+
+			// ---- On scroll, fix the header to the top ---- //
+			if (document.location.protocol !== 'https:' && $(window).innerWidth() > 768) {
+				// $('#js-header').stuck();
+			};
+
+			// ---- Toggle global log in display ---- //
+			$('.js-open-global-sign-in').on('click', 'a', function (e) {
+				e.preventDefault();
+				$('#js-global-sign-in').toggleClass('open');
+			});
+
+			// Email Sign up Ajax'd
+			// Issues with Cross Browser.
+			/*			$('#js-global-newsletter-form').on('submit', function(e) {
+							e.preventDefault();
+							var eform = $(this),
+								eformData = eform.serialize(),
+								eformUrl = eform.attr('action'),
+								eformMethod = eform.attr('method'),
+								newsletterUrl = eformUrl + '?' + eformData,
+								email = $('#js-global-newsletter-email'),
+								message = $('#js-global-newsletter-message');
+							if (!isValidEmailAddress(email.val())) {
+								// Check the form for a valid email address
+								message.addClass('message-warning').text('You have entered an invalid email address!').show().delay(3000).fadeOut();
+								email.val('').focus();
+								e.preventDefault();
+							}
+							else {
+								$.magnificPopup.open({
+									items: {
+										src: newsletterUrl
+									},
+									type: 'iframe',
+									mainClass: 'newsletter-iframe',
+									closeMarkup: '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'
+								});
+							}
+						});*/
+
+			// ---- Mobile Footer Links Control ---- //
+			function footerNavControl() {
+				if ($(window).innerWidth() < 704) {
+					if ($('#js-mobile-footer-links ul').length == 0) {
+						$('#js-mobile-footer-links').append($('#js-footer-links').find('ul'));
+					};
+				} else {
+					if ($('#js-footer-links ul').length == 0) {
+						$('#js-footer-links').append($('#js-mobile-footer-links').find('ul'));
+					}
+				};
+				/* Corrects positioning of virtual keyboard */
+				$(document).on('focus', 'input, select, textarea', function () {
+					$('#mobile-footer').css('position', 'static');
+				});
+				$(document).on('blur', 'input, select, textarea', function () {
+					$('#mobile-footer').css('position', 'fixed');
+				});
+			};
+			$(window).on('debouncedresize load', footerNavControl());
+
+			//Change background color of the global navigation
+			$(document).on('click', function () {
+				if ($(this).attr('id') !== '#global-search-col') {
+					$('.global-search').removeClass('white-bg');
+					$('.sli-rac-wrapper').removeClass('open').hide();
+				}
+			});
+
+			// Accept Cookie Banner
+			(function() {
+				// Constants
+				var COOKIE_KEY = "AcceptCookies";
+
+				// Exit early
+				if (readCookie(COOKIE_KEY) !== null) {
+					return;
+				}
+
+				// Return template
+				$.ajax({
+						url: window.location.origin + "/mm5/merchant.mvc?screen=accept_cookie_policy",
+						dataType: "json"
+					})
+					.done(function(jqXHR) {
+						// Defaults
+						var data = jqXHR;
+						var $acceptCookieButton = null;
+						var $acceptCookieContainer = null
+
+						// Append HTML
+						$(document.body).append(data.template);
+
+						// Button
+						$acceptCookieButton = $("#cookies");
+
+						// Banner
+						$acceptCookieContainer = $("#popUpCookies");
+
+						// Store Cookie
+						$acceptCookieButton.on("click", function() {
+							// Set Cookie
+							createCookie(COOKIE_KEY, "ok", data.daysToStoreCookie);
+
+							// Remove banner
+							$acceptCookieContainer.remove();
+						});
+					});
+			})();
+		});
+
+	},
+
+	sharedFunctions: {
+		// ---- Toggle Details ---- //
+		toggleCustomerFields: function () {
+			var ToggleDetails = {
+				primary_fields: null,
+				secondary_fields: null,
+				primary_tag: "",
+				secondary_tag: "",
+				trigger: null,
+				controls: null,
+				primary_inputs: [],
+				primary_selects: [],
+				secondary_inputs: [],
+				secondary_selects: [],
+				init: function () {
+					var a = this;
+					this.primary_fields = document.getElementById("js-shipping-fields");
+					this.secondary_fields = document.getElementById("js-billing-fields");
+					this.trigger = document.getElementById("js-billing-to-show");
+					this.controls = document.getElementById("js-billing-controls");
+					this.primary_tag = "Ship";
+					this.secondary_tag = "Bill";
+					this.primary_inputs = this.primary_fields.getElementsByTagName("input");
+					this.primary_selects = this.primary_fields.getElementsByTagName("select");
+					this.secondary_inputs = this.secondary_fields.getElementsByTagName("input");
+					this.secondary_selects = this.secondary_fields.getElementsByTagName("select");
+					this.addEvent(this.trigger, "click", function () {
+						a.go()
+					});
+					this.controls.style.visibility = "visible";
+					this.trigger.checked && (this.addEvent(this.trigger.form, "submit", ToggleDetails.copyFields), this.secondary_fields.style.visibility = "hidden", this.secondary_fields.style.display = "none")
+				},
+				go: function () {
+					this.trigger.checked ? (this.addEvent(this.trigger.form, "submit", ToggleDetails.copyFields), this.secondary_fields.style.visibility = "hidden", this.secondary_fields.style.display = "none") : (this.removeEvent(this.trigger.form, "submit", ToggleDetails.copyFields), this.secondary_fields.style.visibility = "visible", this.secondary_fields.style.display = "block")
+				},
+				copyFields: function () {
+					var a = {},
+						c = {},
+						b;
+					for (i = 0; i < ToggleDetails.primary_inputs.length; i += 1) b = ToggleDetails.primary_inputs[i].name.replace(ToggleDetails.primary_tag, ToggleDetails.secondary_tag), a[b] = {}, a[b].value = ToggleDetails.primary_inputs[i].value, ToggleDetails.primary_inputs[i].checked && (a[b].checked = !0);
+					for (i = 0; i < ToggleDetails.primary_selects.length; i += 1) b = ToggleDetails.primary_selects[i].name.replace(ToggleDetails.primary_tag, ToggleDetails.secondary_tag), c[b] = {}, c[b].selectedIndex = ToggleDetails.primary_selects[i].selectedIndex;
+					for (member in a) ToggleDetails.trigger.form[member] && (ToggleDetails.trigger.form[member].value = a[member].value, ToggleDetails.trigger.form[member].checked = a[member].checked);
+					for (member in c) ToggleDetails.trigger.form[member].selectedIndex = c[member].selectedIndex
+				},
+				addEvent: function (a, c, b) {
+					return a.addEventListener ? (a.addEventListener(c, b, !1), !0) : a.attachEvent ? a.attachEvent("on" + c, b) : !1
+				},
+				removeEvent: function (a, c, b) {
+					a.removeEventListener ? a.removeEventListener(c, b, !1) : a.detachEvent && a.detachEvent("on" + c, b)
+				}
+			};
+			ToggleDetails.init();
+		},
+
+		// ---- Cart Summary Controls ---- //
+		cartSummary: function () {
+			var marker = $('#js-toggle-cart-summary-contents').find('span'),
+				clickCount = 0;
+
+			$('#js-toggle-cart-summary-contents').on('click', function (e) {
+				e.preventDefault();
+				if (clickCount) {
+					marker.html('&#9660;');
+					clickCount = 0;
+					$('#js-cart-summary-contents').slideDown();
+				} else {
+					clickCount = 1;
+					marker.html('&#9658;');
+					$('#js-cart-summary-contents').slideUp();
+				};
+			});
+			if ($(window).innerWidth() < 768) {
+				$('#js-toggle-cart-summary-contents').click();
+			};
+		},
+
+		// ---- Open Forgot Password ---- //
+		openForgotPassword: function (pageID) {
+			$('#js-open-forgot-password').magnificPopup({
+				callbacks: {
+					open: function () {
+						if (pageID == 'jsOCST') {
+							magnificPopup.close();
+						};
+					}
+				},
+				focus: '#l-Customer_LoginEmail',
+				items: {
+					src: $('#js-forgot-password'),
+					type: 'inline'
+				}
+			});
+		},
+
+		// ---- Conform all subcategory and/or product DIVs to same height ---- //
+		conformDisplay: function (targetElement) {
+			var targetElement = targetElement || '.category-product';
+
+			$(window).on('load', function () {
+				$(targetElement).conformity({
+					mode: 'height'
+				});
+			});
+			$(window).on('debouncedresize', function () {
+				$(targetElement).conformity({
+					mode: 'height'
+				});
+			});
+		},
+
+		// ---- Open Product Image Gallery ---- //
+		productGallery: function (trigger) {
+			trigger.on('click', function (e) {
+				var startAt = Number($(this).attr('data-index'))
+
+				e.preventDefault();
+				if (gallery.length > 0) {
+					$.magnificPopup.open({
+						callbacks: {
+							open: function () {
+								$.magnificPopup.instance.goTo(startAt);
+							}
+						},
+						gallery: {
+							enabled: true
+						},
+						items: gallery
+					});
+				} else {
+					$.magnificPopup.open({
+						items: {
+							src: $('#js-main-image').attr('data-image')
+						},
+						type: 'image'
+					});
+				};
+			});
+		}
+
+
+	},
+
+	jsSFNT: function () {
+		cornerstoneUX.sharedFunctions.conformDisplay('.category-product');
+
+		var HeroSlider = function(){
+
+			//check if window object exists
+			window.mivaJS = window.mivaJS || {};
+
+			//set backup variable
+			mivaJS.heroSlideTimer = mivaJS.heroSlideTimer || 2000;
+
+			var $sfntSlider = $("#sfnt-hero-slider");
+
+			var sliderSettings = {
+				arrows: false,
+				dots: true,
+				infinite: true,
+				speed: 1000,
+				slidesToShow: 1,
+				adaptiveHeight: true,
+				lazyLoad: 'ondemand',
+				autoplay: false,
+				autoplaySpeed: mivaJS.heroSlideTimer,
+				customPaging: function(slick,index){
+					return '<a class="sfnt-hero-dot"></a>';
+				}
+			};
+
+			this.init = function() {
+
+				$sfntSlider.slick(sliderSettings);
+
+				$sfntSlider.find('.slick-dots').wrap('<div class="slick-dots-wrapper"></div>');
+				$('.slick-dots-wrapper').prepend('<div class="control-btn pause"></div>');
+
+				$sfntSlider.slick('slickPlay');
+
+
+				this.controller();
+
+			}
+			this.controller = function(){
+				$('.control-btn').on('click', function(){
+					var $this = $(this);
+					if ($this.hasClass('pause')) {
+						$sfntSlider.slick('slickPause');
+					} else {
+						$sfntSlider.slick('slickPlay');
+					}
+
+					$this.toggleClass('pause');
+
+				});
+			}
+
+		};
+
+		var heroSlider = new HeroSlider();
+		heroSlider.init();
+
+		//Prevent loading on main nav parent links
+		$('.null').click(function (e) {
+			e.preventDefault();
+		});
+
+
+	},
+
+	jsSFNT2: function () {
+
+		//Prevent loading on main nav parent links
+		$('.null').click(function (e) {
+			e.preventDefault();
+		});
+
+
+	},
+
+	jsCTGY: function () {
+		// ---- Conform all subcategory and/or product DIVs to same height ---- //
+		cornerstoneUX.sharedFunctions.conformDisplay();
+		cornerstoneUX.sharedFunctions.conformDisplay('.product-name');
+		$('.mobile-filter-btn').on('click', function (e) {
+			$.magnificPopup.open({
+				items: {
+					src: $('#sli_facets')
+				},
+				type: 'inline',
+				alignTop: true
+			});
+		});
+
+		// Make jQuery UI handles draggable (range sliders )
+
+	},
+
+	jsCTGYPARENT: function () {
+		// ---- Conform all subcategory and/or product DIVs to same height ---- //
+		cornerstoneUX.sharedFunctions.conformDisplay();
+		cornerstoneUX.sharedFunctions.conformDisplay('.product-name');
+		// console.log('Parent Category Page!');
+		$('.subcategory-products-list').slick({
+			infinite: false,
+			slidesToShow: 4,
+			slidesToScroll: 4,
+			slide: '.subcategory-item',
+			responsive: [{
+					breakpoint: 769,
+					settings: {
+						slidesToShow: 3,
+						slidesToScroll: 1,
+					}
+				},
+				{
+					breakpoint: 480,
+					settings: {
+						slidesToShow: 2,
+						slidesToScroll: 1
+					}
+				}
+				// You can unslick at a given breakpoint now by adding:
+				// settings: "unslick"
+				// instead of a settings object
+			]
+		});
+	},
+
+	jsPROD: function () {
+		let variantUpdateRan = 0;
+
+		// ---- Open Product Image Gallery ---- //
+		cornerstoneUX.sharedFunctions.productGallery($('#js-main-image'));
+
+		// Gift Card checks (This will show the recipient fields if the customer selects email delivery)
+		var deliveryMethod = $('.gcert-l-method');
+		var toggleEmailFieldsRequired = function (required) {
+			var emailFields = document.querySelectorAll('label[for="l-gd_wtg_recp_name"], #l-gd_wtg_recp_name, label[for="l-gd_wtg_recp_email"], #l-gd_wtg_recp_email, label[for="l-gd_wtg_recp_message"], #l-gd_wtg_recp_message');
+			for (const emailField of emailFields) {
+				if (emailField.nodeName === 'LABEL') {
+					if (required) {
+						emailField.classList.add('required');
+					} else {
+						emailField.classList.remove('required');
+					}
+				} else {
+					emailField.required = required;
+				}
+			}
+		}
+
+		if (deliveryMethod.length > 0) {
+			$(deliveryMethod).on('change', function () {
+				if ($(this).val() == 'EMAIL') {
+					$('.gcert-email-fields').slideToggle();
+					toggleEmailFieldsRequired(true);
+				} else if ($('.gcert-email-fields').is(':visible') == true) {
+					$('.gcert-email-fields').slideToggle();
+					toggleEmailFieldsRequired(false);
+				}
+			});
+		};
+
+		// Modal window for product icons
+		$('#js-product-icons a').on('click', function (e) {
+			e.preventDefault();
+			var url = $(this).attr('href');
+			$.magnificPopup.open({
+				items: {
+					src: url,
+					type: 'iframe'
+				}
+			});
+		});
+
+		// --- Zoom Triggering for Slow Speeds --- //
+		var interval = null;
+		$('#js-main-image').on('mouseenter', function () {
+			$('#zoom-hold').show();
+			interval = setInterval(function () {
+				$('#js-main-image').trigger('mouseleave');
+				$('#js-main-image').trigger('mouseenter');
+			}, 1000);
+		}).on('mouseleave', function () {
+			$('#zoom-hold').hide();
+			window.clearInterval(interval);
+		});
+
+		function reZoom() {
+			$('html:not(.mobile) #js-main-image').trigger('zoom.destroy');
+			$('#zoom-hold .inner').html('');
+
+			$('html:not(.mobile) #js-main-image').zoom({
+				url: $('#js-main-image').attr('data-image'),
+				target: ('#zoom-hold .inner')
+			});
+		}
+		reZoom();
+
+
+		function prodVideos() {
+
+			// Check for youtube ids
+			var youtubeIds = $('.thumbnail-wrapper').data('youtubeid');
+			if (youtubeIds.length > 0) {
+				// console.log(youtubeIds);
+				var youtubeArray = youtubeIds.split(',');
+				$.each(youtubeArray, function (key, value) {
+					// console.log(value);
+					/* Commented out code will allow youtube videos to be displayed in gallery view
+					var videoSrc = 'http://www.youtube.com/watch?v=' + value;
+					gallery.push({
+						src: videoSrc,
+						title: 'YouTube Video',
+						type: 'iframe'
+					});*/
+					$('#js-thumbnails').prepend('<div class="column one-third medium-one-fourth large-one-fifth thumbnail yt-thumbnail"><img src="//i.ytimg.com/vi/' + value + '/default.jpg" data-youtubeid="' + value + '" class="yt-' + value + '" /></div>');
+				});
+			};
+
+			// var mainImageZoom = document.getElementById('main-image-zoom'),
+			var thumbnails = document.getElementById('js-thumbnails');
+			for (var i = 0; i < thumbnails.children.length; i++) {
+				(function (index) {
+					thumbnails.children[i].onclick = function () {
+						document.getElementById('js-main-image').setAttribute('data-index', index);
+					}
+				})(i);
+			};
+
+			if ($('#js-thumbnails-slick').hasClass('slick-initialized')) {
+				$('#js-thumbnails-slick').slick('unslick');
+			}
+
+
+			$('#js-thumbnails-slick').html($('#js-thumbnails').html());
+
+			$('#js-thumbnails-slick').slick({
+				infinite: true,
+				slidesToShow: 4,
+				slidesToScroll: 4
+			});
+			$('#js-thumbnails img:first').trigger('click');
+
+		}
+
+		prodVideos();
+
+		$('#js-thumbnails-slick').on('click', '.thumbnail', function () {
+			var $img = $(this).find('img').attr('src');
+			var youtubeId = $(this).find('img').data('youtubeid');
+			var largeImage = $(this).data('large');
+
+			// console.log($img);
+			$('#js-thumbnails').find('img[src="' + $img + '"]').trigger('click');
+
+			if (youtubeId) {
+				// Commented code updates the main image to show the youtube video image
+				//$('.main-image-display .playButton').show();
+				//$('#js-main-image').attr('src', 'http://i.ytimg.com/vi/' + youtubeId + '/hqdefault.jpg');
+
+				// Display Modal Window for youtube videos
+				var url = '//www.youtube.com/watch?v=' + youtubeId;
+				$.magnificPopup.open({
+					items: {
+						src: url
+					},
+					type: 'iframe',
+					mainClass: 'youtube-iframe',
+					closeMarkup: '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'
+				});
+			} else if (largeImage) {
+				$('#js-main-image').attr('data-image', largeImage);
+				$('#zoom-hold .zoomImg').attr('src', largeImage);
+				console.log(largeImage);
+			} else {
+				// Commented code updates the main image to hide the play button (related to the commented code above)
+				// $('.main-image-display .playButton').hide();
+			};
+		});
+
+		$('.main-image-display .playButton').on('click', function () {
+			$('#js-main-image').trigger('click');
+		});
+
+		$('.prod-descrip-content').readmore({
+			speed: 500,
+			collapsedHeight: 480,
+			moreLink: '<a class="continue-reading" href="#">Continue Reading <span data-icon="&#x50;"></span></a>',
+			lessLink: '<a class="continue-reading" href="#">Read less <span data-icon="&#x4f;"></span></a>'
+		});
+
+
+		// === Update Pricing display (if there is a discount) === /
+		function priceDisplay() {
+			var retailPrice = $.trim($('#price-value-additional').text()),
+				retailPrice = parseFloat(retailPrice.replace('$', ''));
+
+			var normalPrice = $.trim($('#prod-price').text()),
+				normalPrice = parseFloat(normalPrice.replace('$', ''));
+
+			if ((retailPrice !== 'NaN') && (retailPrice > normalPrice) && (retailPrice !== '')) {
+				$('#price-value-additional').show();
+				$('#prod-price').addClass('red');
+			} else {
+				$('#price-value-additional').hide();
+				$('#prod-price').removeClass('red');
+			}
+
+			// Retrieve the variant price change text
+			var retailPriceDesktopText = $('#price-value-additional').text(),
+				normalPriceDesktopText = $('#prod-price').text();
+
+			// Update the mobile varitance change price
+			$('#price-value-additional-mobile').text(retailPriceDesktopText);
+			$('#prod-price-mobile').text(normalPriceDesktopText);
+		};
+
+		/*
+						SlideUp - Hides
+						SlideDown - Shows
+						*/
+
+		function updateWaitlist(inv_code, inv_available, inv_active) {
+			var $waitListWrap = $('#js-waitlist-row'),
+				$adprQtyWrap = $('#js-add-to-cart-qty-wrapper');
+
+			// Customfield Logic
+			if (inv_code) {
+				switch (inv_code) {
+					case "special_order":
+						$adprQtyWrap.slideDown('fast');
+						$waitListWrap.slideUp('fast');
+						break;
+					case "pre_paid":
+						$adprQtyWrap.slideDown('fast');
+						$waitListWrap.slideUp('fast');
+						break;
+					case "do_not_backorder":
+						$adprQtyWrap.slideUp('fast');
+						$waitListWrap.slideDown('fast');
+						break;
+					default:
+						break;
+				}
+			} else {
+				// No custom inventory code check inventory levels
+				if (inv_available > 0 || !inv_active) {
+					// Show
+					$adprQtyWrap.slideDown('fast');
+					// Hide
+					$waitListWrap.slideUp('fast');
+				} else {
+					// Show
+					$adprQtyWrap.slideDown('fast');
+					// Show
+					$waitListWrap.slideDown('fast');
+				}
+			}
+		}
+
+		/*
+		updateProductsInventoryMessage Reset Form Functionality
+		*/
+		(function () {
+			// Vars
+			var $purchaseForm = $('#js-purchase-product'),
+				$waitListWrap = $('#js-waitlist-row');
+
+			// Event
+			$purchaseForm.on('change', function (event) {
+				var formElements = Array.prototype.slice.call(event.currentTarget.elements),
+					formHasNoOption;
+
+				// Find no selected option
+				formHasNoOption = formElements.filter(function (element) {
+					return (element.nodeName).toLowerCase() === "select" && element.value === "";
+				});
+
+				// If we have an option with no value hide waitlist
+				if (formHasNoOption.length) {
+					$waitListWrap.slideUp('fast');
+				}
+
+			});
+		})();
+
+		/*
+		Customfield Priority Logic -
+		Lowest to highest:
+		rank - code - inventory/parameters - rank detail - inventory message
+		1 - on backorder - 0 or less - lowest - default message - "On Backorder"
+		2 - do not backorder - 0 or less and checked do not bo "yes" - "Out of stock, not accepting back orders"
+		3 - special order - 0 or less and checked special order "yes" - "Special order item, not in stock"
+		4 - pre pay - 0 or less and checked pre pay "yes" - "Special order item, deposit required"
+		5 - in stock - greater than 0 - highest - "In Stock"
+		*/
+
+		// Update inventory message
+		var $inventoryMessageElement = $('#js-inventory-message'),
+			$inventoryMessageInput = $('input[name="checkoutMessage"]');
+
+		function updateProductsInventoryMessage(product_data) {
+			var product_code = product_data.product_code,
+				variant_id = product_data.variant_id,
+				inv_available = product_data.inventory.inv_available,
+				inv_active = product_data.inventory.inv_active,
+				customfields = "pre_paid,special_order,do_not_backorder", // Ordered by priority
+				url = window.location.origin + "/customfields.html?code=" + customfields + "&prod_code=" + product_code + "&variant_id=" + variant_id;
+
+			// Remove current Inventory Message
+			$inventoryMessageElement.css('color', '#4d4d4d');
+			$inventoryMessageElement.text('Loading...');
+
+			// AJAX custom page to retrieve specific customfields values
+			$.ajax({
+					url: url
+				})
+				.error(function () {
+					$inventoryMessageElement.text('Sorry, An error has occured. Please try again.');
+				})
+				.success(function (data) {
+					var data = JSON.parse(data),
+						customfieldCode = data.customfield.code;
+					customfieldMessage = data.customfield.custom_message;
+
+					// Do we have data
+					data = (!$.isEmptyObject(data.customfield)) ? data : false;
+
+					/*
+					If we have data proceed to display the message
+					else determine the message via inventory
+					*/
+					if (data) {
+
+						// If customfieldMessage has a value continue
+						if (customfieldMessage) {
+							displayMessage($inventoryMessageElement, customfieldCode, customfieldMessage);
+						} else {
+							displayMessage($inventoryMessageElement, customfieldCode);
+						}
+
+						// Make sure that the product's inventory is out of stock
+						if (inv_available <= 0 && inv_active) {
+							// Update Waitlist
+							updateWaitlist(customfieldCode, inv_available, inv_active);
+						} else {
+							// Else display default inventory message
+							displayMessage($inventoryMessageElement, product_data.inventory.inv_short);
+
+							// Update Waitlist
+							updateWaitlist(null, inv_available, inv_active);
+						}
+					} else {
+						// Else display default inventory message
+						if (product_data.inventory.inv_active === false) {
+							displayMessage($inventoryMessageElement, '<span class="green"><span data-icon="R"></span> In Stock</span>');
+						} else {
+							displayMessage($inventoryMessageElement, product_data.inventory.inv_short);
+						}
+
+						// Update Waitlist
+						updateWaitlist(null, inv_available, inv_active);
+					}
+				});
+		}
+
+		// Depending on customfield display the message
+		function displayMessage(el, code, custom_message) {
+			// Update text color
+			el.css('color', '#d03932');
+
+			/*
+			If we have a custom message display the message
+			else determine the fallback messaging off the code
+			*/
+			if (custom_message) {
+				el.html('<span data-icon="r"></span> ' + custom_message);
+				// Show short checkout messages
+				switch (code) {
+					case "special_order":
+						$inventoryMessageInput.val('Special Order');
+						break;
+					case "pre_paid":
+						$inventoryMessageInput.val('Deposit Required');
+						break;
+					case "do_not_backorder":
+						$inventoryMessageInput.val('Out of stock, not accepting back orders');
+						break;
+					default:
+						break;
+				}
+			} else {
+				switch (code) {
+					case "special_order":
+						el.html('<span data-icon="r"></span> Special order item,<br/> not in stock');
+						$inventoryMessageInput.val('Special Order');
+						break;
+					case "pre_paid":
+						el.html('<span data-icon="r"></span> Special order item,<br/> deposit required');
+						$inventoryMessageInput.val('Deposit Required');
+						break;
+					case "do_not_backorder":
+						el.html('<span data-icon="r"></span> Out of stock, not accepting back orders');
+						$inventoryMessageInput.val('Out of stock, not accepting back orders');
+						break;
+					default:
+						// Display Default messaging text
+						el.html(code);
+
+						$inventoryMessageInput.val('');
+						break;
+				}
+			}
+		}
+
+		const updateVariantURL = function (variantId) {
+			let newSearch = '';
+
+			if ((/variant_id=\d+/).test(window.location.search)) {
+				newSearch = window.location.search.replace(/variant_id=\d+/, 'variant_id=' + variantId);
+			} else if (window.location.search) {
+				newSearch = window.location.search + '&variant_id=' + variantId;
+			} else {
+				newSearch = '?variant_id=' + variantId;
+			}
+
+			window.history.replaceState(null, '', window.location.pathname + newSearch + window.location.hash);
+		}
+
+		// ---- Update Display When Attribute Machine Fires ---- //
+		MivaEvents.SubscribeToEvent('variant_changed', function (product_data) {
+			variantUpdateRan = 1;
+			gallery.length = 0;
+			// mainImageZoom.attr('data-index', 0);
+			thumbnailIndex = 0;
+			$('.main-image-display .playButton').hide();
+			setTimeout(prodVideos, 250);
+			priceDisplay();
+			updateProductsInventoryMessage(product_data);
+			updateVariantURL(product_data.variant_id);
+		});
+
+		if (variantUpdateRan === 0) {
+			if (window.mivaJS?.VariantData) {
+				window.MivaEvents?.ThrowEvent?.('variant_changed', window.mivaJS.VariantData);
+			}
+		}
+
+		// ---- Update Display Price Based on Attribute Selections (If Attribute Machine Is Not Being Used) ---- //
+		if (typeof attrMachCall === 'undefined' && document.getElementById('js-product-attribute-count').value > 0) {
+			for (var baseProductPrice = Number(document.getElementById("prod-price").getAttribute("data-base-price")), regularProductPrice = Number(), productAttributeCount = Number(document.getElementById("js-product-attribute-count").value + 1), productAttributes = document.getElementById("js-purchase-product").elements, attributeType = [""], i = 0; i < productAttributes.length; i++) {
+				var tagName = productAttributes[i].tagName.toLowerCase(),
+					elementType = productAttributes[i].type,
+					type = productAttributes[i].getAttribute("data-attribute-type"),
+					name = productAttributes[i].name;
+				"hidden" == elementType && null != type && attributeType.push(type);
+				productAttributes[i].onchange = function () {
+					updateProductDisplayPrice()
+				}
+			}
+
+			function updateProductDisplayPrice() {
+				for (var b, a, c = baseProductPrice, f = regularProductPrice, d = 1; d < productAttributeCount; d++)
+					if (b = document.getElementsByName("Product_Attributes[" + d + "]:value"), "select" == attributeType[d])
+						for (var e = 0; e < b.length; e++) a = b.item(e), a = a.options.item(a.selectedIndex), c += Number(a.getAttribute("data-option-price")), f += Number(a.getAttribute("data-regular-price"));
+					else if ("radio" == attributeType[d] || "checkbox" == attributeType[d])
+					for (e = 0; e < b.length; e++) a = b.item(e), a.checked && (c += Number(a.getAttribute("data-option-price")), f += Number(a.getAttribute("data-regular-price")));
+				else if ("text" == attributeType[d] || "memo" == attributeType[d]) a = b.item(0), a.value && (c += Number(a.getAttribute("data-option-price")), f += Number(a.getAttribute("data-regular-price")));
+				b = document.getElementsByName("Quantity");
+				c *= Number(b.item(0).value);
+				b.item(0);
+				document.getElementById("prod-price").innerHTML = formatCurrency(c)
+				document.getElementById("prod-price-mobile").innerHTML = formatCurrency(c)
+			}
+
+			function formatCurrency(b) {
+				var a = !1;
+				0 > b && (a = !0, b = Math.abs(b));
+				return (a ? "-$" : "$") + parseFloat(b, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString()
+			}
+			updateProductDisplayPrice();
+		};
+
+		// ---- Quantity Incrementer ---- //
+		$('#js-increase-quantity').on('click', function () {
+			// console.log('Click!');
+			var $qty = $(this).parent('div').find('input'),
+				currentVal = parseInt($qty.val());
+
+			if (!isNaN(currentVal)) {
+				$qty.val(currentVal + 1);
+			};
+		});
+		$('#js-decrease-quantity').on('click', function () {
+			// console.log('Click!');
+			var $qty = $(this).parent('div').find('input'),
+				currentVal = parseInt($qty.val());
+
+			if (!isNaN(currentVal) && currentVal > 0) {
+				$qty.val(currentVal - 1);
+			};
+		});
+
+		// ---- Add to Wish List ---- //
+		function addToWishList() {
+			$('#js-add-to-wishlist').on('click', function (e) {
+
+				e.preventDefault();
+
+				// Define Form
+				$form = $('#js-purchase-product');
+				$form.attr('action', 'https://' + window.location.hostname + '/mm5/merchant.mvc?');
+
+				// Set Values for Hidden Inputs
+				$form.find('input[name="Screen"]').val('WISH');
+				$form.find('input[name="Action"]').val('ATWL');
+
+				// Submit Form
+				$form.submit();
+			});
+		};
+		var addToWishList = new addToWishList;
+
+		// ---- AJAX Add To Cart ---- //
+		function addToCart() {
+			$('#js-add-to-cart').on('click', function (e) {
+				var purchaseForm = $('#js-purchase-product');
+				// Check the form is not currently submitting
+				if (purchaseForm.data('formstatus') !== 'submitting') {
+					// Set up variables
+					var form = purchaseForm,
+						formData = form.serialize(),
+						randomNo = Math.ceil(Math.random() * 1000000), // IE Hack: Creating random number to refresh ajax call
+						formUrl = form.attr('action') + '&v=' + randomNo,
+						formMethod = form.attr('method'),
+						responseMessage = $('#js-purchase-message'),
+						miniBasket = $('#js-mini-basket-container'),
+						processingImage = $('#js-processing-purchase'),
+						purchaseButton = $(this);
+
+					// Add status data to form
+					form.data('formstatus', 'submitting');
+
+					// Show processing message
+					processingImage.show();
+					purchaseButton.toggleDisabled().val('Processing...');
+					responseMessage.html('').hide();
+
+					// Send data to server for validation
+					$.ajax({
+						url: formUrl,
+						type: formMethod,
+						data: formData,
+						success: function (data, textStatus, jqXHR) {
+							if (data.search(/id="js-BASK"/i) != -1) {
+								$('html, body').animate({
+									scrollTop: '0px'
+								}, 250);
+								$('#js-mini-basket-count').addClass('added');
+								var responseMiniBasket = $(data).find('#js-mini-basket-container'),
+									miniBasketCount = responseMiniBasket.contents()[1].getAttribute('data-itemcount'),
+									miniBasketSubtotal = ' ' + responseMiniBasket.contents()[1].getAttribute('data-subtotal'),
+									miniBasketLinkCount = $('#js-mini-basket-count, #js-mobile-basket-count, #js-mobile-footer-basket-count, #js-mobile-menu-basket-count'),
+									miniBasketLinkSubtotal = $('#js-mini-basket-subtotal');
+
+								miniBasketLinkCount.text('(' + miniBasketCount + ')'); // Update basket quantity (display only)
+								miniBasketLinkSubtotal.text(miniBasketSubtotal); // Update basket subtotal (display only)
+
+								miniBasket.html(responseMiniBasket.contents()).addClass('open');
+								setTimeout(function () {
+									miniBasket.removeClass('open');
+								}, 8000);
+
+								// Send Add To Cart to GA
+								if (typeof window.google_tag_manager !== "undefined") {
+									window.dataLayer = window.dataLayer || [];
+									var gtm_price = 0;
+									var price_element = document.getElementById("prod-price");
+									var price_element_span = "";
+									var urlParams = new URLSearchParams(window.location.search);
+									var gtmList = urlParams.get('list') ?? 'Product Page';
+
+									// Price Element is not always on the page. Fallbacks to `gtm-price` on the form.
+									// Sometimes price element has a span directly inside of it. If this is the case, utilize that instead.
+									if (price_element) {
+										price_element_span = price_element.querySelector("span");
+										if (price_element_span) {
+											gtm_price = Number(price_element_span.textContent.replace(/[^0-9.-]+/g, ""));
+										} else {
+											gtm_price = Number(price_element.textContent.replace(/[^0-9.-]+/g, ""));
+										}
+									}
+
+									if (gtm_price === 0) {
+										gtm_price = purchaseForm.data('gtm-price');
+									}
+
+									var slugifyText = function (text) {
+										return text.toLowerCase().replace(/[^\w ]+/g, '').replace(/ +/g, '-');
+									}
+
+									window.dataLayer.push({
+										'ecommerce': {
+											'currencyCode': 'USD',
+											'add': {
+												'products': [{
+													brand: purchaseForm.data('gtm-brand') || '',
+													id: purchaseForm.data('gtm-code') || '',
+													/* eslint-disable camelcase */
+													item_brand: purchaseForm.data('gtm-brand') || '',
+													item_id: purchaseForm.data('gtm-code') || '',
+													item_list_id: gtmList ? slugifyText(gtmList) : '',
+													item_list_name: gtmList || '',
+													item_name: purchaseForm.data('gtm-name') || '',
+													/* eslint-enable camelcase */
+													name: purchaseForm.data('gtm-name') || '',
+													price: gtm_price,
+													quantity: parseFloat(purchaseForm.find('input[name="Quantity"]').val()),
+													product_id: purchaseForm.data('gtm-productid')
+												}]
+											}
+										},
+										event: 'addToCart',
+										/* eslint-disable camelcase */
+										ga_event_action: 'Add To Cart',
+										ga_event_category: 'Ecommerce',
+										ga_event_label: '',
+										ga_event_noninteraction_hit: false,
+										ga_event_value: ''
+										/* eslint-enable camelcase */
+									});
+								}
+
+								// Re-Initialize Attribute Machine (if it is active)
+								if (typeof attrMachCall !== 'undefined') {
+									attrMachCall.Initialize();
+								};
+							} else if (data.search(/id="js-PATR"/i) != -1) {
+								var missingAttrs = [];
+								form.find('.required').each(function () {
+									missingAttrs.push(' ' + $(this).attr('title'));
+								});
+								responseMessage.html('All <em class="red">Required</em> options have not been selected.<br />Please review the following options: <span class="red">' + missingAttrs + '</span>.').fadeIn().delay(5000).fadeOut();
+							} else if (data.search(/id="js-PLMT"/i) != -1) {
+								responseMessage.html('We do not have enough of the Size/Color you have selected.<br />Please adjust your quantity.').fadeIn().delay(3000).fadeOut();
+							} else if (data.search(/id="js-POUT"/i) != -1) {
+								responseMessage.html('The Size/Color you have selected is out of stock.<br />Please review your options or check back later.').fadeIn().delay(3000).fadeOut();
+							} else {
+								responseMessage.html('Please review options.').fadeIn().delay(3000).fadeOut();
+							};
+
+							// Hide processing message and reset formstatus
+							processingImage.hide();
+							purchaseButton.toggleDisabled().val('Add to Cart');
+							form.data('formstatus', 'idle');
+						},
+						error: function (jqXHR, textStatus, errorThrown) {}
+					});
+				};
+				// Prevent form from submitting
+				e.preventDefault();
+			});
+		};
+		var addToCart = new addToCart;
+
+		// ---- Tell A Friend Control ---- //
+		function tellAFriend() {
+			var $taf = $('#js-tell-a-friend'),
+				$tafForm = $taf.find('form');
+
+			// ---- Open Tell-A-Friend Form ---- //
+			$('#js-open-tell-a-friend, #js-mobile-open-tell-a-friend').magnificPopup({
+				callbacks: {
+					close: function () {
+						$('#js-tafName, #js-tafEmail, #js-tafFriendEmail, #l-tafComment').val('');
+						$tafForm.find('fieldset').show();
+						$('#js-validation-errors, #js-processing, #js-success, #js-error').hide();
+					}
+				},
+				focus: '#js-tafName',
+				items: {
+					src: $taf,
+					type: 'inline'
+				}
+			});
+			$taf.on('click', 'a, input[type="reset"]', function (e) {
+				e.preventDefault();
+				$.magnificPopup.close();
+			});
+
+			// ---- Tell-A-Friend Form Validation Add Additional Server Security To Help Against Spambots ---- //
+			$.get('../forms/token.php', function (tkn) {
+				$tafForm.append('<input type="hidden" name="mms" value="' + tkn + '" />');
+			});
+
+			// ---- AJAX Tell A Friend Form ---- //
+			$tafForm.on('submit', function (e) {
+				// Validate form fields
+				var tafName = $('#js-tafName').val(),
+					tafEmail = $('#js-tafEmail').val(),
+					tafFriendEmail = $('#js-tafFriendEmail').val(),
+					errorMessagesWrap = $('#js-validation-errors');
+
+				errorMessagesWrap.hide().empty();
+
+				if (tafName.length == 0) {
+					errorMessagesWrap.fadeIn().append('Please enter your name!<br />');
+					e.preventDefault();
+				} else if (!isValidEmailAddress(tafEmail)) {
+					errorMessagesWrap.fadeIn().append('Your email address is invalid!<br />');
+					e.preventDefault();
+				} else if (!isValidEmailAddress(tafFriendEmail)) {
+					errorMessagesWrap.fadeIn().append('Your friend\'s email address is invalid!<br />');
+					e.preventDefault();
+				} else {
+					// Check the form is not currently submitting
+					if ($(this).data('formstatus') !== 'submitting') {
+						// Set up variables
+						var form = $(this),
+							formData = form.serialize(),
+							formUrl = form.attr('action'),
+							formMethod = form.attr('method')
+
+						// Add status data to form
+						form.data('formstatus', 'submitting');
+
+						// Show processing message
+						$(this).find('fieldset').hide();
+						$('#js-processing').show();
+
+						// Send data to server for validation
+						$.ajax({
+							url: formUrl,
+							type: formMethod,
+							data: formData,
+							success: function (data, textStatus, jqXHR) {
+								// Hide processing message, show success message and reset formstatus
+								$('#js-processing').hide();
+								if (data.search(/error/i) != -1) {
+									$('#js-error').text(data).show();
+								} else {
+									$('#js-success').show();
+								};
+								form.data('formstatus', 'idle');
+							},
+							error: function (jqXHR, textStatus, errorThrown) {
+								// Hide processing message, show error message and reset formstatus
+								// console.log(errorThrown);
+								form.data('formstatus', 'idle');
+							}
+						});
+					};
+				};
+
+				// Prevent form from submitting
+				e.preventDefault();
+			});
+		};
+		var tellAFriend = new tellAFriend;
+
+		// Responsive Tabs
+		$('#js-prod-tabs').responsiveTabs();
+		$('#fb-comment-tab').on('click', function () {
+			$('.fb-comments, .fb-comments span, .fb-comments iframe').css('width', '100%');
+		});
+
+
+		// Power Reviews Desktop
+		$('#js-product-info-content').on('click', '.pr-snippet-read-reviews a, .pr-stars, .pr-snippet-review-count', function (e) {
+			e.preventDefault();
+			$('#prod-reviews-tab a').trigger('click');
+			$('html, body').animate({
+				scrollTop: $("#tab-reviews").offset().top
+			}, 1000);
+		});
+		$('#js-product-info-content').on('click', '.pr-pa-snippet-questions a, .pr-pa-snippet-answers a, .prpa_custom_qa_link, .pr-snippet-qa-answer-link, .pr-answered-question-circle, .pr-qa-large', function (e) {
+			e.preventDefault();
+			$('#qa-tab a').trigger('click');
+			$('html, body').animate({
+				scrollTop: $("#tab-questions").offset().top
+			}, 1000);
+		});
+		// Power Reviews Mobile
+		$('.product-mobile-header').on('click', '.pr-snippet-read-reviews a, .pr-stars, .pr-snippet-review-count', function (e) {
+			e.preventDefault();
+			$('#prod-reviews-tab a').trigger('click');
+			$('html, body').animate({
+				scrollTop: $("#tab-reviews").offset().top
+			}, 1000);
+		});
+		$('.product-mobile-header').on('click', '.pr-pa-snippet-questions a, .pr-pa-snippet-answers a, .prpa_custom_qa_link, .pr-snippet-qa-answer-link, .pr-answered-question-circle, .pr-qa-large', function (e) {
+			e.preventDefault();
+			$('#qa-tab a').trigger('click');
+			$('html, body').animate({
+				scrollTop: $("#tab-questions").offset().top
+			}, 1000);
+		});
+
+		$("#special").click(function () {
+			$(".attribute-row-addComments").slideToggle("fast");
+		});
+
+	},
+
+	jsPRODP: function () {
+		// ---- Launch Printer Dialog ---- //
+		window.print();
+	},
+
+	jsPLST: function () {
+		// ---- Conform all subcategory and/or product DIVs to same height ---- //
+		cornerstoneUX.sharedFunctions.conformDisplay();
+	},
+
+	jsSRCH: function () {
+		// ---- Conform all subcategory and/or product DIVs to same height ---- //
+		cornerstoneUX.sharedFunctions.conformDisplay();
+	},
+
+	jsSPCL: function () {
+		// ---- Conform all subcategory and/or product DIVs to same height ---- //
+		cornerstoneUX.sharedFunctions.conformDisplay();
+
+		//---------- start spine calc functionality ----------//
+		(function ($) {
+			$.fn.countTo = function (options) {
+				// merge the default plugin settings with the custom options
+				options = $.extend({}, $.fn.countTo.defaults, options || {});
+
+				// how many times to update the value, and how much to increment the value on each update
+				var loops = Math.ceil(options.speed / options.refreshInterval),
+					increment = (options.to - options.from) / loops;
+
+				return $(this).each(function () {
+					var _this = this,
+						loopCount = 0,
+						value = options.from,
+						interval = setInterval(updateTimer, options.refreshInterval);
+
+					function updateTimer() {
+						value += increment;
+						loopCount++;
+						$(_this).html(value.toFixed(options.decimals));
+
+						if (typeof (options.onUpdate) == 'function') {
+							options.onUpdate.call(_this, value);
+						}
+
+						if (loopCount >= loops) {
+							clearInterval(interval);
+							value = options.to;
+
+							if (typeof (options.onComplete) == 'function') {
+								options.onComplete.call(_this, value);
+							}
+						}
+					}
+				});
+			};
+
+			$.fn.countTo.defaults = {
+				from: 0, // the number the element should start at
+				to: 100, // the number the element should end at
+				speed: 1000, // how long it should take to count between the target numbers
+				refreshInterval: 100, // how often the element should be updated
+				decimals: 0, // the number of decimal places to show
+				onUpdate: null, // callback method for every time the element is updated,
+				onComplete: null, // callback method for when the element finishes updating
+			};
+		})(jQuery);
+
+		$('label').click(function () {
+			$(this).next().focus();
+		});
+		$('.arrowInf').click(function (e) {
+			e.preventDefault();
+			$('.arrowInf').hide();
+			$('.increment').css('background-color', '#cdcdcd');
+			$('.spcl-right, .personalForm').slideDown();
+			$('.secondincrement').css('background-color', '#f8c364');
+			$('#spcl-tab1').removeClass('highlighted');
+			$('#spcl-tab2').addClass('highlighted');
+		});
+		$('.calculate').click(function (e) {
+			e.preventDefault();
+			$('.results').slideDown();
+			$(window).scrollTop($('.results').offset().top, 500);
+			$('#spcl-tab2').removeClass('highlighted');
+			$('#spcl-tab3').addClass('highlighted');
+			$('.increment').css('background-color', '#cdcdcd');
+			jQuery(function ($) {
+				$('.bow_result').countTo({
+					from: 0,
+					to: 16.2,
+					speed: 1000,
+					refreshInterval: 50,
+					decimals: 1,
+					onComplete: function (value) {
+						console.debug(this);
+					}
+				});
+			});
+			jQuery(function ($) {
+				$('.arrow_result').countTo({
+					from: 0,
+					to: 20.2,
+					speed: 1000,
+					refreshInterval: 50,
+					decimals: 1,
+					onComplete: function (value) {
+						console.debug(this);
+					}
+				});
+			});
+		});
+		$('.form_row').each(function () {
+			$(this).find('input, select').focus(function () {
+				$('.increment').css('background-color', '#cdcdcd');
+				$(this).parent().find('.increment').css('background-color', '#f8c364');
+			});
+			$(this).find('input, select').blur(function () {
+				$(this).parent().find('.increment').css('background-color', '#cdcdcd');
+			});
+		});
+		//---------- end spine calc functionality ----------//
+
+		// Tooltip Functionality from Arrow Builder
+		function spclTooltip (parent_element) {
+			this.parent_element = parent_element;
+			this.triggers = this.parent_element.getElementsByClassName('tooltip');
+			this.tooltip = this.parent_element.querySelector('.spcl-helper-content');
+			this.closeElement = this.parent_element.querySelector('.toggle-helper');
+
+			if (this.triggers && this.tooltip && this.closeElement) {
+				this.bindEvents();
+			}
+		};
+
+		spclTooltip.prototype.bindEvents = function() {
+			var self = this;
+
+			for (var i = 0; i < self.triggers.length; i++) {
+				self.triggers[i].addEventListener('click', function(e) {
+					self.toggleTooltip(e);
+				});
+			}
+
+			self.closeElement.addEventListener('click', function(e) {
+				self.closeTooltip(e);
+			})
+		}
+
+		spclTooltip.prototype.toggleTooltip = function(e) {
+			e.preventDefault();
+
+			$(this.tooltip).slideToggle();
+		}
+
+		spclTooltip.prototype.closeTooltip = function(e) {
+			e.preventDefault();
+
+			$(this.tooltip).slideUp();
+		}
+
+		var tooltipElements = document.getElementsByClassName('form_row');
+		for (var i = 0; i < tooltipElements.length; i++) {
+			new spclTooltip(tooltipElements[i]);
+		}
+	},
+
+	jsBASK: function () {
+		var pageProductCode = $('body').data('productsku');
+
+		$('#add-catal').on('click', function () {
+			$('#js-catalog').submit();
+		});
+
+		// ---- Basket Item Quantity Update/Remove ---- //
+		function quantityUpdating() {
+			function allowRemoveUpdate() {
+				$('input[name="Quantity"]').each(function () {
+					var $quantityInput = $(this);
+					if ($quantityInput.val() > 1) {
+						$quantityInput.siblings('.remove-quantity').hide().next($.hook('decrease-quantity')).fadeIn();
+					} else {
+						$quantityInput.siblings('.remove-quantity').fadeIn().next($.hook('decrease-quantity')).hide();
+					}
+
+					var submitQuantity = debounce(function (e) {
+						var $input = $(this);
+						if (e.which != 8 && e.which != 37 && e.which != 38 && e.which != 39 && e.which != 40 && e.which != 46) {
+							$input.closest('form').submit();
+						};
+					}, 250);
+
+					$quantityInput.on('change keyup', submitQuantity);
+				});
+			};
+			allowRemoveUpdate();
+
+			$.hook('increase-quantity').on('click', function () {
+				var $qty = $(this).siblings('input'),
+					currentVal = parseInt($qty.val());
+
+				if (!isNaN(currentVal)) {
+					$qty.val(currentVal + 1).change();
+					allowRemoveUpdate();
+				};
+			});
+			$.hook('decrease-quantity').on('click', function () {
+				var $qty = $(this).siblings('input'),
+					currentVal = parseInt($qty.val());
+
+				if (!isNaN(currentVal) && currentVal > 1) {
+					$qty.val(currentVal - 1).change();
+					allowRemoveUpdate();
+				};
+			});
+		};
+		var quantityUpdating = new quantityUpdating();
+
+
+		// ---- Estimate Shipping Function - Mobile---- //
+		function estimateShipping() {
+			function resetFields() {
+				$('#js-shipping-estimate-state-select, js-shipping-estimate-state-select-desk').prop('selectedIndex', 0);
+				$('#js-shipping-estimate-country, #js-shipping-estimate-country-desk').val('US');
+				$('#js-shipping-estimate-state, #js-shipping-estimate-zip, #js-shipping-estimate-state-desk, #js-shipping-estimate-zip-desk').val('');
+			};
+
+			$('#js-show-shipping-estimate, #js-show-shipping-estimate-desk').on('click', function (e) {
+				e.preventDefault();
+				$('#js-shipping-estimate-dialog, #js-shipping-estimate-dialog-desk').fadeToggle();
+				resetFields();
+			});
+
+			$('#js-shipping-estimate-recalculate, #js-shipping-estimate-recalculate-desk').on('click', function (e) {
+				e.preventDefault()
+				$(this).hide();
+				$('#js-shipping-estimate-results, #js-shipping-estimate-results-desk').fadeOut(function () {
+					$('#js-shipping-estimate-fields, #js-shipping-estimate-fields-desk').fadeIn();
+				}).empty();
+			});
+
+			$('#js-shipping-estimate-form, #js-shipping-estimate-form-desk').on('submit', function (e) {
+				e.preventDefault()
+				if ($(this).data('formstatus') !== 'submitting') {
+
+					var form = $(this),
+						formData = form.serialize(),
+						formUrl = form.attr('action'),
+						formMethod = form.attr('method')
+
+					form.data('formstatus', 'submitting');
+					$('#js-processing-request, #js-processing-request-desk').show();
+					$.ajax({
+						url: formUrl,
+						type: formMethod,
+						data: formData,
+						success: function (data, textStatus, jqXHR) {
+							$('#js-shipping-estimate-fields, #js-shipping-estimate-fields-desk').fadeOut(function () {
+								$('#js-shipping-estimate-results, #js-shipping-estimate-results-desk').html(data).fadeIn();
+								$('#js-shipping-estimate-recalculate, #js-shipping-estimate-recalculate-desk').fadeIn();
+							});
+							resetFields();
+							form.data('formstatus', 'idle');
+							$('#js-processing-request, #js-processing-request-desk').hide();
+						},
+						error: function (jqXHR, textStatus, errorThrown) {
+							// console.log(errorThrown);
+							form.data('formstatus', 'idle');
+						}
+					});
+				};
+			});
+		};
+		var estimateShipping = new estimateShipping;
+
+		// ---- Show More/Less button for prodcuts with more than 3 attributes  - Logic in BASK---- //
+		$('button.show-more').on('click', function (e) {
+			$('p.second-half').toggle('fast');
+			($("button.show-more").text() === "MORE +") ? $("button.show-more").text("LESS -"): $("button.show-more").text("MORE +");
+		});
+
+		// Magnific popup for shipping estimator
+		$('#js-show-shipping-estimate-mobile').on('click', function (e) {
+			e.preventDefault();
+			$.magnificPopup.open({
+				// Delay in milliseconds before popup is removed
+				removalDelay: 300,
+				// Class that is added to popup wrapper and background
+				// make it unique to apply your CSS animations just to this exact popup
+				mainClass: 'mfp-fade',
+				callbacks: {
+					open: function () {
+						//$.magnificPopup.instance.goTo(startAt);
+					}
+				},
+				items: {
+					src: '#estimate-content',
+					type: 'inline'
+				}
+			});
+		});
+		$("#js-show-shipping-estimate-mobile").click(function () {
+			$("#estimate-content").hide();
+		});
+
+		$("#js-show-shipping-estimate-mobile").click(function () {
+			$("#estimate-content").show();
+		});
+		$('#close-sli-nav').on('click', function () {
+			$.magnificPopup.close();
+		});
+
+		// Media Event
+		var media = window.matchMedia('(min-width: 768px)');
+
+		function paypalMediaChanged (isDesktop) {
+			var largeParentElement	= document.getElementById('paypal-cp-large');
+			var smallParentElement	= document.getElementById('paypal-cp-small');
+			if (!largeParentElement || !smallParentElement) {
+				return;
+			}
+
+			var desktopPaypalButton	= largeParentElement.querySelector('#paypalcp-button-container');
+			var mobilePaypalButton	= smallParentElement.querySelector('#paypalcp-button-container');
+
+			if (isDesktop) {
+				if (mobilePaypalButton) {
+					largeParentElement.appendChild(mobilePaypalButton);
+				}
+
+				return;
+			}
+
+			if (desktopPaypalButton) {
+				smallParentElement.appendChild(desktopPaypalButton);
+			}
+		}
+
+		paypalMediaChanged(media.matches);
+
+		media.addEventListener('change', function(event) {
+			paypalMediaChanged(event.matches);
+		});
+	},
+
+	jsACAD: function () {
+		// ---- Copy Email Address to Shipping or Billing Email ---- //
+		$('#js-Customer_LoginEmail').on('blur', function () {
+			var primaryAddress = $(this).attr('data-primary'),
+				shippingEmail = $('#js-Customer_ShipEmail'),
+				billingEmail = $('#js-Customer_BillEmail');
+
+			if (primaryAddress == 'shipping') {
+				if (shippingEmail && (shippingEmail.val() == '')) {
+					shippingEmail.val($(this).val());
+				};
+			} else if (primaryAddress == 'billing') {
+				if (billingEmail && (billingEmail.val() == '')) {
+					billingEmail.val($(this).val());
+				};
+			};
+		});
+
+		// ---- Toggle Customer Fields Controls ---- //
+		cornerstoneUX.sharedFunctions.toggleCustomerFields();
+	},
+
+	jsACED: function () {
+		// ---- Toggle Customer Fields Controls ---- //
+		cornerstoneUX.sharedFunctions.toggleCustomerFields();
+	},
+
+	jsCTUS: function () {
+		// ---- Additional Server Security To Help Against Spambots ---- //
+		$.ajax({
+			cache: true,
+			crossDomain: true,
+			dataType: 'script',
+			url: '//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js'
+		}).done(function () {
+			var contactForm = $('#js-contact-form');
+			$('#js-noscript-warning').remove();
+			contactForm.show();
+			$.get('../forms/token.php', function (tkn) {
+				contactForm.append('<input type="hidden" name="mms" value="' + tkn + '" />');
+			});
+
+			// ---- Form Validation ---- //
+			contactForm.validate({
+				errorContainer: '#js-contact-form div.message',
+				errorLabelContainer: '#js-contact-form div.message small',
+				errorElement: 'p',
+				rules: {
+					contactName: {
+						required: true,
+						minlength: 2
+					},
+					contactEmail: {
+						required: true,
+						email: true
+					},
+					contactComment: {
+						required: true,
+						minlength: 2
+					}
+				},
+				messages: {
+					contactName: {
+						required: 'Your Name Is Required',
+						minlength: jQuery.validator.format('Your Name must be a minimum of {0} characters!')
+					},
+					contactEmail: {
+						required: 'Your Email Address Is Required',
+						email: 'Your Email Address must be formatted like name@domain.com'
+					},
+					contactComment: {
+						required: 'Comments or Questions Are Required',
+						minlength: jQuery.validator.format('Your Message must be a minimum of {0} characters!')
+					}
+				},
+				highlight: function (element, errorClass) {
+					$(element.form).find('label[for=' + element.id + ']').addClass(errorClass);
+				},
+				unhighlight: function (element, errorClass) {
+					$(element.form).find('label[for=' + element.id + ']').removeClass(errorClass);
+				},
+				submitHandler: function (form) {
+					if ($(this).data('formstatus') !== 'submitting') {
+						var form = contactForm,
+							formData = form.serialize(),
+							formUrl = form.attr('action'),
+							formMethod = form.attr('method')
+
+						form.data('formstatus', 'submitting');
+						$.ajax({
+							url: formUrl,
+							type: formMethod,
+							data: formData,
+							success: function (data, textStatus, jqXHR) {
+								// Show reponse message
+								if (data.search(/error/i) != -1) {
+									$('#js-contact-form div.message').fadeOut(200, function () {
+										$(this).removeClass('message-info').addClass('message-error').text(data).fadeIn(200);
+									});
+								} else {
+									$('#js-contact-form div.message').removeClass('message-error').addClass('message-success').text(data).fadeIn(200);
+								};
+								form.data('formstatus', 'idle');
+							},
+							error: function (jqXHR, textStatus, errorThrown) {
+								// console.log(errorThrown);
+								form.data('formstatus', 'idle');
+							}
+						});
+					};
+				}
+			});
+		});
+	},
+
+	jsAFCL: function () {
+		// ---- Open Forgot Password ---- //
+		cornerstoneUX.sharedFunctions.openForgotPassword();
+	},
+
+	jsLOGN: function () {
+		// ---- Open Forgot Password ---- //
+		cornerstoneUX.sharedFunctions.openForgotPassword();
+	},
+
+	jsORDL: function () {
+		// ---- Open Forgot Password ---- //
+		cornerstoneUX.sharedFunctions.openForgotPassword();
+	},
+
+	jsORHL: function () {
+		// ---- Open Forgot Password ---- //
+		cornerstoneUX.sharedFunctions.openForgotPassword();
+	},
+
+	jsOCST: function () {
+		// ---- Open Log-In Form ---- //
+		$('#js-open-ocst-login').magnificPopup({
+			focus: '#l-Customer_LoginEmail',
+			items: {
+				src: $('#js-ocst-login'),
+				type: 'inline'
+			}
+		});
+
+		// ---- Toggle PW visibility ---- //
+		$(".toggle-visibility").click(function() {
+		  $(this).toggleClass("fa-eye fa-eye-slash");
+		  var input = $($(this).attr("toggle"));
+		  if (input.attr("type") == "password") {
+		    input.attr("type", "text");
+		  } else {
+		    input.attr("type", "password");
+		  }
+		});
+
+		// ---- Open Forgot Password ---- //
+		cornerstoneUX.sharedFunctions.openForgotPassword('jsOCST');
+
+		// ---- Cart Summary Controls ---- //
+		cornerstoneUX.sharedFunctions.cartSummary();
+
+		// ---- Toggle Customer Fields Controls ---- //
+		if ($(window).innerWidth() < 768) {
+			$('#js-billing-to-show').click();
+		};
+
+		$('#acct-create').on('click', function (e) {
+			e.preventDefault();
+			$('#create-account').fadeToggle("fast", "linear");
+		});
+	},
+
+	jsOSEL: function () {
+		// ---- Cart Summary Controls ---- //
+		cornerstoneUX.sharedFunctions.cartSummary();
+
+		$('#js-read-shipping').on('click', function (e) {
+			e.preventDefault();
+			$.magnificPopup.open({
+				items: {
+					src: 'https://www.3riversarchery.com/policies.html?ajax=1#shipping'
+				},
+				callbacks: {
+					markupParse: function (template, values, item) {
+						template.find('iframe').addClass('read-shipping');
+					}
+				},
+				type: 'iframe',
+				closeMarkup: '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'
+
+			});
+
+		});
+
+		//character limit
+		var charLimit = 270;
+		$('textarea').on("input", function(){
+			var charTyped = $(this).val().length;
+			$(this).val($(this).val().substring(0, charLimit));
+			charTyped = $(this).val().length;
+			var charLeft = charLimit - parseInt(charTyped);
+			$('#charLeft').text(charLeft);
+		});
+
+		var sendGTMShippingOption = function (form) {
+			var selectedShipping = form.querySelector('[name="ShippingMethod"]:checked');
+
+			if (!selectedShipping) {
+				return;
+			}
+
+			var checkoutOption = selectedShipping.getAttribute('data-gtm-name');
+			var checkoutOptionValue = selectedShipping.getAttribute('data-gtm-value');
+
+			window.dataLayer = window.dataLayer || [];
+
+			window.dataLayer.push({
+				ecommerce: {
+					// eslint-disable-next-line camelcase
+					checkout_option: {
+						actionField: {
+							option: 'Shipping ' + checkoutOption,
+							step: 5
+						}
+					}
+				},
+				event: 'shipping_selected',
+				/* eslint-disable camelcase */
+				ga_event_action: 'Checkout Option',
+				ga_event_category: 'Ecommerce',
+				ga_event_label: 'Shipping ' + checkoutOption,
+				ga_event_noninteraction_hit: false,
+				ga_event_value: '',
+				shipping_option: checkoutOption,
+				shipping_price: checkoutOptionValue
+				/* eslint-enable camelcase */
+			});
+		}
+
+		var oselForm = document.getElementById('js-osel-form');
+		if (oselForm) {
+			oselForm.addEventListener('submit', function () {
+				sendGTMShippingOption(oselForm);
+			});
+		}
+	},
+
+	jsOPAY: function () {
+		// ---- Cart Summary Controls ---- //
+		cornerstoneUX.sharedFunctions.cartSummary();
+
+		// ---- Gift Certificate Form Handling ---- //
+		(function () {
+			var $gcForm = $('#opay-certificates');
+
+			if (!$gcForm.length) {
+				return;
+			}
+
+			var $gcInput = $('input[type="text"]', $gcForm);
+			var $gcSubmit = $('[type="submit"]', $gcForm);
+
+			if (!$gcInput.length || !$gcSubmit.length) {
+				return;
+			}
+
+			var handleSubmitStatus = function () {
+				$gcSubmit.prop('disabled', $gcInput.val().length === 0);
+			};
+
+			handleSubmitStatus();
+
+			$gcInput.on('input', function () {
+				handleSubmitStatus();
+			});
+
+			$gcForm.on('submit', function () {
+				$gcSubmit.prop('disabled', true);
+			});
+		})();
+
+		// ---- Make Credit Card Expiration Fields More User-Friendly ---- //
+		$('#js-cc_exp select').first().find('option:first').text('Month');
+		$('#js-cc_exp select').last().find('option:first').text('Year');
+
+		// ---- CVV Information Function ---- //
+		$('#js-open-cvv-information').magnificPopup({
+			items: {
+				src: $('#js-cvv-information'),
+				type: 'inline'
+			}
+		});
+
+		// ---- Payment Formatting ---- //
+		$.getScript('../js/jquery.payment.js', function () {
+			var creditCardTypeMap = {
+					visa: '#l-Visa',
+					mastercard: '#l-MasterCard',
+					amex: '#l-AmericanExpress',
+					discover: '#l-Discover'
+				},
+				$paymentMethods = $('#js-opay-form').find('input:radio[name="PaymentMethod"]');
+
+			$(document)
+				.find('.cc_number input[type="text"]')
+				.payment('formatCardNumber')
+				.on('keyup', function () {
+					var type = $.payment.cardType(this.value),
+						$matchingPaymentMethod = $(creditCardTypeMap[type]);
+					$('#js-cc-icons .message').hide();
+
+					if ($matchingPaymentMethod.length) {
+						$matchingPaymentMethod.prop('checked', true);
+						var PaymentSelected = $('#payment-form-wrap').find('input[name="PaymentMethod"]:checked').val();
+						// console.log(PaymentSelected);
+						$('#opay-certificates, #opay-coupon-redemption, #points-redemption-form').find('input[name="PaymentMethod"]').val(PaymentSelected);
+					}
+				});
+
+			$('#js-cvv').find('#cvv-input').payment('formatCardCVC');
+		});
+	},
+
+	jsINVC: function () {
+		// ---- Show More/Less button for prodcuts with more than 3 attributes  - Logic in BASK---- //
+		$('button.show-more').on('click', function (e) {
+			$('p.second-half').toggle('fast');
+			($("button.show-more").text() === "MORE +") ? $("button.show-more").text("LESS -"): $("button.show-more").text("MORE +");
+		});
+	},
+
+	jsORDP: function () {
+		// ---- Launch Printer Dialog ---- //
+		window.print();
+	},
+
+	jsSMAP: function () {
+		// ---- Conform all site map DIVs to same height ---- //
+		cornerstoneUX.sharedFunctions.conformDisplay('.site-map');
+	},
+	jsWRDPRESS: function () {
+		if ($('body').hasClass('page-id-1334')) {
+			$('head').append('<style>.frm_multiple_file {display:none!important;}</style>');
+			$('input[type=file]').each(function () {
+				$('<a href="#" class="button uploadButton">Choose Files</a><div class="selectedFiles">No File Chosen</div><div class="clear"></div>').insertAfter($(this));
+				$(this).hide();
+			});
+			$('.uploadButton, .selectedFiles').click(function (e) {
+				e.preventDefault();
+				$(this).prev($('input[type=file]')).click();
+			});
+			$("input[type=file]").change(function () {
+				$(this).parent().find('.selectedFiles').html(' ');
+			});
+		}
+		if ($('body').hasClass('tribe_community_edit')) {
+			$('#event-categories .selectit input').hide();
+			$('input[type=checkbox]').change(function () {
+				$('.selectit input:checked').parent().addClass('selected');
+				$('.selectit input:not(:checked)').parent().removeClass('selected');
+			});
+
+		}
+	},
+	jsNTFD: function () {
+
+		//Prevent loading on main nav parent links
+		$('.null').click(function (e) {
+			e.preventDefault();
+		});
+
+	},
+	jsPATR: function () {
+		// Responsive Tabs
+		$('#js-prod-tabs').responsiveTabs();
+		$('#fb-comment-tab').on('click', function () {
+			$('.fb-comments, .fb-comments span, .fb-comments iframe').css('width', '100%');
+		});
+
+		// Power Reviews Desktop
+		$('#js-product-info-content').on('click', '.pr-snippet-read-reviews a, .pr-stars, .pr-snippet-review-count', function (e) {
+			e.preventDefault();
+			$('#prod-reviews-tab a').trigger('click');
+			$('html, body').animate({
+				scrollTop: $("#tab-reviews").offset().top
+			}, 1000);
+		});
+		$('#js-product-info-content').on('click', '.pr-pa-snippet-questions a, .pr-pa-snippet-answers a, .prpa_custom_qa_link', function (e) {
+			e.preventDefault();
+			$('#qa-tab a').trigger('click');
+			$('html, body').animate({
+				scrollTop: $("#tab-questions").offset().top
+			}, 1000);
+		});
+		// Power Reviews Mobile
+		$('.product-mobile-header').on('click', '.pr-snippet-read-reviews a, .pr-stars, .pr-snippet-review-count', function (e) {
+			e.preventDefault();
+			$('#prod-reviews-tab a').trigger('click');
+			$('html, body').animate({
+				scrollTop: $("#tab-reviews").offset().top
+			}, 1000);
+		});
+		$('.product-mobile-header').on('click', '.pr-pa-snippet-questions a, .pr-pa-snippet-answers a, .prpa_custom_qa_link', function (e) {
+			e.preventDefault();
+			$('#qa-tab a').trigger('click');
+			$('html, body').animate({
+				scrollTop: $("#tab-questions").offset().top
+			}, 1000);
+		});
+
+		$("#special").click(function () {
+			$(".attribute-row-addComments").slideToggle("fast");
+		});
+	},
+	jsRateUs: function () {
+		// Responsive Tabs
+		$('#js-prod-tabs').responsiveTabs();
+		$('#fb-comment-tab').on('click', function () {
+			$('.fb-comments, .fb-comments span, .fb-comments iframe').css('width', '100%');
+		});
+	},
+	jsSearch: function () {
+		cornerstoneUX.sharedFunctions.conformDisplay();
+		cornerstoneUX.sharedFunctions.conformDisplay('.product-name');
+
+		$('.youtube-video-link, .play-video').on('click', function (e) {
+			var url = '//www.youtube.com/watch?v=' + $(this).data('youtubeid');
+			e.preventDefault();
+			$.magnificPopup.open({
+				items: {
+					src: url
+				},
+				type: 'iframe',
+				mainClass: 'youtube-iframe',
+				closeMarkup: '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'
+			});
+		});
+
+	},
+	jsVideoclips: function () {
+		$('.category-product a, .play-video').on('click', function (e) {
+			var url = '//www.youtube.com/watch?v=' + $(this).data('youtubeid');
+			e.preventDefault();
+			$.magnificPopup.open({
+				items: {
+					src: url
+				},
+				type: 'iframe',
+				mainClass: 'youtube-iframe',
+				closeMarkup: '<button title="Close (Esc)" type="button" class="mfp-close">×</button>'
+			});
+		});
+	},
+	jsCARD_BAL: function () {
+		var form = $( '#js-gift-check' ),
+		formAction = form.attr('validate'),
+		formMethod = form.attr('method'),
+		submitBtn = form.find('[type="submit"]'),
+		errorMessages = $('#recap-error');
+
+		var errorReporting = function (message) {
+			errorMessages.removeClass('hide').text( message );
+			submitBtn.text( 'Check Balance' );
+			submitBtn.attr( 'disabled', false );
+			setTimeout(function(){
+				errorMessages.addClass('hide');
+			}, 5000);
+		}
+
+		form.on( 'submit', function ( e ){
+
+			e.preventDefault();
+
+			submitBtn.text( 'Loading...' );
+			submitBtn.attr('disabled', true);
+
+			// recaptcha validation
+			if ( grecaptcha && !grecaptcha.getResponse() ){
+				errorReporting( "Please complete reCaptcha to proceed." );
+				return false;
+			}
+
+			if ( form.data( 'formstatus' ) === 'submitting' ) return;
+
+			form.data( 'formstatus', 'submitting' );
+
+
+			if ( !grecaptcha.getResponse() ) {
+
+				errorReporting("Recaptcha has an internal failure. Please refresh the page and try again.");
+
+			} else {
+
+				$.ajax({
+					url: formAction,
+					type: formMethod,
+					cache: false,
+					data: grecaptcha.getResponse(),
+					success: function (data, textStatus, jqXHR) {
+						if ( data.success === 0 ) {
+							if ( data.message ) {
+								errorReporting(data.message);
+							}
+						} else {
+							$(form)[0].submit();
+						}
+
+						grecaptcha.reset();
+						form.data( 'formstatus', '' );
+					},
+					error: function() {
+						form.data( 'formstatus', '' );
+						submitBtn.text( 'Check Balance' );
+						submitBtn.attr( 'disabled', false );
+					}
+				});
+			}
+		})
+	}
+};
+cornerstoneUX.init();
